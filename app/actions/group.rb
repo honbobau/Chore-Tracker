@@ -6,7 +6,7 @@ post "/create" do
 	@group = Group.new({group_name: name})
 	@group.save
 	current_user.update(group_id: @group.id, is_admin: true)
-	redirect to ('/main')
+	erb:'/main'
 end
 
 #joins a group by the group name
@@ -14,13 +14,13 @@ put "/join" do
 	name = params[:group_name]
 	@group = Group.find_by(group_name: name)
 	current_user.update(group_id: @group.id)
-	redirect to ('/main')
+	erb :'/main'
 end
 
 # Logs user out of group
 put "/leave" do
 	current_user.update(group_id: nil)
-	redirect to ('/main')
+	erb:'/main'
 end
 
 #removes the group id from the user
