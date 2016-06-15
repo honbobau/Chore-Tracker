@@ -13,6 +13,11 @@ put "/join" do
 	redirect to ('/main')
 end
 
+put "/leave" do
+	current_user.update(group_id: nil)
+	redirect to ('/main')
+end
+
 delete "/remove" do
 	group = Group.find(params[:id])
 	group.destroy
