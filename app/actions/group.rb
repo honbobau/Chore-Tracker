@@ -10,7 +10,6 @@ end
 
 post "/join" do
 	name = params[:group_name]
-
 end
 
 delete "/remove" do
