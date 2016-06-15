@@ -8,7 +8,11 @@
   .background-color: #263648;
 }
 
+.group_buttons {
+  display: inline;
+}
+
 /* landing page */
 .landing_page {
-  text-align: center:;
+  text-align: center
 }

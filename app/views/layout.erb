@@ -25,13 +25,36 @@
         <div class="col-md-3">
           <h2>ChoreTracker</h2>
         </div>
+          <!-- if a user is logged in -->
           <% if current_user %>
-            <div class="col-md-4 pull-right">
+            <!-- checks to see if user is in a group -->
+            <div class="col-md-4 group_buttons">
+              <!-- option to leave the group if they are -->
+              <% if current_group %>
+                <form method="post" action="">
+                  <input type="submit" value="Stop Helping These Guys">
+                </form> 
+              <!-- option to create or join a group if not -->
+              <% else %>
+                <form method="post" action="/create">
+                  <input type="text" name="group_name">
+                  <input type="submit" value="Create a Group">
+                </form>
+                <form method="post" action="/join">
+                  <input type="hidden" name="_method" value="PUT">
+                  <input type="text" name="group_name">
+                  <input type="submit" value="Join a Group">
+                </form>
+              <% end %>
+            </div>
+
+            <div class="col-md-4">
               <p>Hello, <%= current_user.user_name %></p>
               <form method="get" action="/logout">
                 <input type="submit" value="Get me outta here!">
               </form>
             </div>
+
           <% else %>
             <div class="col-md-3 pull-right">
               <form method="post" action="/login">
