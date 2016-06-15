@@ -1,8 +1,12 @@
+require "pry"
 post "/create" do
 	name = params[:group_name]
 
-	@group = Group.new({group_name: name})
-	@group.save
+	group = Group.new({group_name: name})
+	group.save
+  current_user.group_id = group.id
+  binding.pry
+  current_user.save
 	redirect to ('/main')
 end
 
@@ -17,4 +21,4 @@ end
 delete "/remove" do
 	group = Group.find(params[:id])
 	group.destroy
-end
+end 
