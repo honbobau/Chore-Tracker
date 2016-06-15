@@ -11,8 +11,8 @@ helpers do
   end
 end
 
-get '/main' do
-  @chores = Chore.where("group_id = current_user.group_id")
+get '/main' do  
+  @chores = Chore.where(group_id: current_user.group_id)
 	erb :'/main/index'
 end
 
