@@ -13,11 +13,11 @@ end
 put '/complete' do
 	chore = Chore.find(params[:chore_id])
 	chore.update(completed: true)
-	erb :'main/index'
+	redirect '/main'
 end
 
 delete '/removechore' do
 	chore = Chore.find(params[:chore_id])
 	chore.destroy
-	erb :'main/index'
+	redirect "/main"
 end

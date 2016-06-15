@@ -28,7 +28,7 @@ post "/login" do
 
 	if user && user.password == password
 		session[:user_id] = user.id
-		redirect to ('/main')
+		redirect to '/main'
 	else
 		@error_message = "Login Error!"
 		erb(:index)
