@@ -1,7 +1,9 @@
+#calls the signup page
 get "/signup" do
 	erb(:signup)
 end
 
+#Creates a new user and save to database if it is valid
 post "/signup" do
 	username = params[:user_name]
 	realname = params[:real_name]
@@ -17,6 +19,7 @@ post "/signup" do
 
 end
 
+#logs the user in if their username/password combo found in database
 post "/login" do
 	username = params[:user_name]
 	password = params[:password]
@@ -32,6 +35,7 @@ post "/login" do
 	end
 end
 
+#gets the user outta here
 get '/logout' do
     session[:user_id] = nil
     erb(:index)

@@ -11,6 +11,10 @@ helpers do
   end
 end
 
+get '/main' do
+	erb :'/main/index'
+end
+
 get '/' do
   erb :index
 end
