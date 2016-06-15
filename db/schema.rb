@@ -11,6 +11,32 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 0) do
+ActiveRecord::Schema.define(version: 20160615181019) do
+
+  create_table "chores", force: :cascade do |t|
+    t.string  "name"
+    t.string  "description"
+    t.integer "difficulty"
+    t.boolean "completed",   default: false
+    t.integer "user_id"
+    t.integer "group_id"
+  end
+
+  create_table "comments", force: :cascade do |t|
+    t.string  "content"
+    t.integer "chore_id"
+  end
+
+  create_table "groups", force: :cascade do |t|
+    t.string "group_name"
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string  "user_name"
+    t.string  "real_name"
+    t.string  "password"
+    t.boolean "is_admin",  default: false
+    t.integer "group_id"
+  end
 
 end

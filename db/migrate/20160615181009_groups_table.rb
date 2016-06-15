@@ -1,7 +1,7 @@
 class GroupsTable < ActiveRecord::Migration
   def change
-    create_table :groups |t|
-      t.string :group_name
+    create_table :groups do |t|
+      t.string "group_name"
     end
   end
 end
