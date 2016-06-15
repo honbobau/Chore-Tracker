@@ -31,9 +31,11 @@
             <div class="col-md-4 group_buttons">
               <!-- option to leave the group if they are -->
               <% if current_group %>
-                <form method="post" action="">
-                  <input type="submit" value="Stop Helping These Guys">
-                </form> 
+                <p>You are a part of <%= current_user.group.group_name %>
+                <form method="post" action="/leave">
+                  <input type="hidden" name="_method" value="PUT">
+                  <input type="submit" value="Stop helping these people!">
+                </form>
               <!-- option to create or join a group if not -->
               <% else %>
                 <form method="post" action="/create">
@@ -48,6 +50,7 @@
               <% end %>
             </div>
 
+            <!-- logs the user out -->
             <div class="col-md-4">
               <p>Hello, <%= current_user.user_name %></p>
               <form method="get" action="/logout">
@@ -55,6 +58,7 @@
               </form>
             </div>
 
+          <!-- if user is not logged in give the option to log in -->
           <% else %>
             <div class="col-md-3 pull-right">
               <form method="post" action="/login">
