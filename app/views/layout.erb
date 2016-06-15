@@ -14,11 +14,43 @@
 
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
   <script src="/javascript/application.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 
   <title></title>
 </head>
 <body>
+  <div class="header">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-3">
+          <h2>ChoreTracker</h2>
+        </div>
+
+        <% if current_user %>
+          <p><% current_user.user_name %></p>
+        <% else %>
+          <div class="col-md-3 pull-right">
+            <form method="post" action="/login">
+              <h4>Sign In</h4>
+                <label>Username:</label>
+                <input type="text" name="user_name">
+                <label>Password:</label>
+                <input type="text" name="password">
+                <input type="submit" name="log me in!">
+              </div>
+            </form>
+          </div>
+        <% end %>
+
+      </div>
+    </div>
+  </div>
   <%= yield %>
+
+  <div class="footer">
+    <div class="container">
+    </div>
+  </div>
 </body>
 </html>
 
