@@ -7,11 +7,7 @@ post "/create_chore" do
 	desc = params[:description]
 	chore = Chore.new({name: name, description: desc, completed: false, group_id: current_user.group_id})
 	chore.save
-	erb :'main/index'
-end
-
-get '/:id' do
-	@chore = Chore.find params[:id]
+  redirect "/main"
 end
 
 put '/complete' do

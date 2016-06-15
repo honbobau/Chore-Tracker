@@ -1,4 +1,7 @@
 /* layout */
+body {
+  font-family: 'Montserrat', sans-serif;
+}
 /* header */
 .header {
   background-color: #D25150;
@@ -15,4 +18,15 @@
 /* landing page */
 .landing_page {
   text-align: center
+}
+
+/* --- */
+/* main page */
+.col-centered {
+  float: none;
+  margin: 0 auto;
+}
+
+.chore_list {
+  padding: 0;
 }
