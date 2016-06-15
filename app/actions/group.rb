@@ -3,15 +3,12 @@ post "/create" do
 
 	@group = Group.new({group_name: name})
 	@group.save
-	current_user.group_id = @group.id
-	current_user.save
 	redirect to ('/main')
-
 end
 
-post "/join" do
+put "/join" do
 	name = params[:group_name]
-	group = Group.find_by({group_name: name})
+	group = Group.where(group_name: name)
 	current_user.group_id = group.id
 	current_user.save
 	redirect to ('/main')
