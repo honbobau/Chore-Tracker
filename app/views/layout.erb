@@ -24,7 +24,11 @@
     <div class="container">
       <div class="row">
         <div class="col-md-3">
-          <h2>ChoreTracker</h2>
+          <% if current_user %>
+            <a href="/"><h2>ChoreTracker</h2></a>
+          <% else %>
+            <a href="/"><h2>ChoreTracker</h2></a>
+          <% end %>
         </div>
           <!-- if a user is logged in -->
           <% if current_user %>
