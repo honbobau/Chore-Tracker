@@ -1,4 +1,4 @@
-get "change_list" do
+get "/change_list" do
 	erb :'/main/change_list'
 end
 
