@@ -1,12 +1,15 @@
 /* layout */
 
 $headerColor: #D25150;
-$footerColor: #446B88;
-$mainFontColor: #FFF;
+$footerColor: #263648;
+$mainFontColor: #F1F2F3;
 $secondaryFontColor: #FFF;
 
 body {
   font-family: 'Montserrat', sans-serif;
+  a {
+    color: inherit;
+  }
   a:hover {
     text-decoration: none;
   }
@@ -14,13 +17,18 @@ body {
 
 /* header */
 .header {
+  color: $mainFontColor;
   background-color: $headerColor;
+  a:hover{
+    color: inherit;
+  }
 }
 
 .footer {
   background-color: $footerColor;
   padding: 20px 0px;
   margin: 0;
+  color: $mainFontColor;
 }
 
 .group_buttons {
@@ -31,17 +39,19 @@ body {
 /* --- */
 /* landing page */
 .indexSignUp {
-  background: url("../pictures/jumbotron.jpg") center -180px no-repeat;
+  background: url("../pictures/jumbotron.jpg") center -100px no-repeat;
   background-size: cover;
+  height: 480px;
+  .btn {
+    background-color: #312525;
+    color: #e7e7e7;
+    font-size: 20px;
+  }
 }
 
 .indexMain {
   padding: 60px 0;
   background-color: #F7F7F7;
-}
-
-.appStats {
-  padding-top: 80px;
 }
 
 /* --- */
@@ -50,6 +60,11 @@ body {
   float: none;
   margin: 0 auto;
 
+}
+
+.appStats {
+  padding-top: 60px;
+  padding-bottom: 60px;
 }
 
 .chore_list {
@@ -72,6 +87,14 @@ body {
   margin-right: -4px;
 }
 
+.relative {
+  position: relative;
+}
+
+.absolute {
+  position: absolute;
+}
+
 #jumbo {
   margin-bottom: 0;
 }
@@ -89,4 +112,8 @@ body {
 #left-border {
   border-left: 3px inset #ffb3b3;
   padding-left: 100px;
+}
+
+#watermark {
+  bottom: 0;
 }
