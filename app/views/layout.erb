@@ -6,6 +6,7 @@
     differences in how form elements appear between Firefox and IE
     See: http://necolas.github.com/normalize.css/
   -->
+
   <link rel="stylesheet" href="/stylesheets/normalize.css">
   <link rel="stylesheet" href="/stylesheets/application.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
@@ -20,11 +21,13 @@
   <div class="header">
     <div class="container">
       <div class="row">
-        <div class="col-md-3">
+        <div class="col-md-4">
           <% if current_user %>
             <a href="/main"><h2>ChoreTracker</h2></a>
+            <h4>make the boring bits of life easy</h4>
           <% else %>
             <a href="/"><h2>ChoreTracker</h2></a>
+            <h4>make the boring bits of life easy</h4>
           <% end %>
         </div>
           <!-- if a user is logged in -->

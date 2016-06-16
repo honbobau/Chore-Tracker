@@ -1,0 +1,52 @@
+/* layout */
+body {
+  font-family: 'Montserrat', sans-serif; }
+  body a:hover {
+    text-decoration: none; }
+
+/* header */
+.header {
+  background-color: #D25150; }
+
+.footer {
+  background-color: #446B88;
+  padding: 20px 0px;
+  margin: 0; }
+
+.group_buttons {
+  display: inline; }
+
+/* --- */
+/* landing page */
+.indexSignUp {
+  margin: 0;
+  padding: 0;
+  background: url("../pictures/jumbotron.jpg") center center no-repeat;
+  background-size: cover; }
+
+.appStats {
+  text-align: left; }
+
+/* --- */
+/* main page */
+.col-centered {
+  float: none;
+  margin: 0 auto; }
+
+.chore_list {
+  padding: 0; }
+
+/* --- */
+/* misc */
+.text-centered {
+  text-align: center; }
+
+.row-centered {
+  text-align: center; }
+
+.col-centered {
+  display: inline-block;
+  float: none;
+  margin-right: -4px; }
+
+/*# sourceMappingURL=application.css.map */
