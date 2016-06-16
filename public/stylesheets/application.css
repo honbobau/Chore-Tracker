@@ -9,11 +9,7 @@ body {
   background-color: #D25150; }
 
 .footer {
-  background-color: #263648;
-  position: absolute;
-  width: 100%;
-  bottom: 0px; 
-}
+  background-color: #446B88; }
 
 .group_buttons {
   display: inline; }
@@ -21,6 +17,11 @@ body {
 /* landing page */
 .landing_page {
   text-align: center; }
+
+/* --- */
+/* landing page */
+.appStats {
+  text-align: left; }
 
 /* --- */
 /* main page */

@@ -1,6 +1,18 @@
 <div class="jumbotron landing_page">
-  <h1>Tired of chores? Do more of them with this app!</h1>
-  <form method="get" action="/user/new">
-    <input type="submit" value="Yipee!">
-  </form>
+  <div class="container">
+    <div class="row">
+      <!-- sign up page -->
+      <div class="col-md-6">
+        <h2>Tired of chores? Do more of them with this app!</h2>
+        <form method="get" action="/user/new">
+          <input type="submit" value="sign me up!">
+        </form>
+      </div>
+      <!-- app stats -->
+      <div class="col-md-5 col-md-offset-1 appStats">
+        <h4>Number of people making chores easy: <%= User.count %></h4>
+        <h4>Number of chores finished: <%= Chore.count %></h4>
+      </div>
+    </div>
+  </div>
 </div>

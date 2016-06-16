@@ -1,18 +1,21 @@
 /* layout */
+
+$headerColor: #D25150;
+$footerColor: #446B88;
 body {
+  font-family: 'Montserrat', sans-serif;
   a:hover {
     text-decoration: none;
   }
-  font-family: 'Montserrat', sans-serif;
 }
 
 /* header */
 .header {
-  background-color: #D25150;
+  background-color: $headerColor;
 }
 
 .footer {
-  .background-color: #263648;
+  background-color: $footerColor;
 }
 
 .group_buttons {
@@ -22,6 +25,12 @@ body {
 /* landing page */
 .landing_page {
   text-align: center
+}
+
+/* --- */
+/* landing page */
+.appStats {
+  text-align: left;
 }
 
 /* --- */
