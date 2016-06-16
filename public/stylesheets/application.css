@@ -2,6 +2,10 @@
 body {
   font-family: 'Montserrat', sans-serif;
 }
+
+body a:hover {
+  text-decoration: none;
+}
 /* header */
 .header {
   background-color: #D25150;

@@ -6,8 +6,25 @@
           <% if current_group %>
             <h3>Today's Chores</h3>
             <% @chores.each do |chore| %>
-              <li><%= chore.name %></li>  
-              <li><%= chore.description %></li>
+              <% if chore.completed == true %>
+                <li class="finished"><%= chore.name %></li>
+                <li>Completed by <%= chore.user.user_name %></li>
+              <% elsif !chore.user_id %>
+                <li><%= chore.name %></li>
+                <form method="post" action="/add_id/<%= chore.id %>">
+                  <input type="hidden" name="_method" value="PUT">
+                  <input type="submit" value="I will do this">
+                </form>
+              <% elsif chore.user_id == current_user.id %>
+                <li><%= chore.name %></li>
+                <form method="post" action="/complete/<%= chore.id %>">
+                  <input type="hidden" name="_method" value="PUT">
+                  <input type="submit" value="finished!">
+                </form>
+              <% else %>
+                <li><%= chore.name %></li>
+                <li>Being done by <%= chore.user.user_name %></li> 
+              <% end %>
             <% end %>
           <% else %>
             <h3>Create or join a group to start doing housework!</h3>
