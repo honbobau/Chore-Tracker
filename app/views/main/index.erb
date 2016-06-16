@@ -14,7 +14,28 @@
 
               <!-- if the chore is not assigned to a user, allow the user take responsibility for it -->
               <% elsif !chore.user_id %>
-                <li><%= chore.name %></li>
+                <li>
+                  <!-- dropdown menu for comments -->
+                  <div class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><%= chore.name %></a>
+                    <ul class="dropdown-menu">
+                      <!-- prints out comments left on the chore if they exist -->
+                      <li>
+                        <% if !chore.comments.empty?%>
+                          <% chore.comments.each do |comment| %>
+                            <p>"<%= comment.content %>" -<%= comment.chore.user %></p>
+                          <% end %>
+                        <% end %>
+                      </li>
+                      <!-- allows the user to leave a comment -->
+                      <form method="post" action="/comment/new/<%= chore.id %>">
+                        <input type="text" name="text" value="leave a comment">
+                        <input type="submit" value="add">
+                      </form>
+                    </ul>
+                  </div>  
+
+                </li>
                 <form method="post" action="/chore/add/<%= chore.id %>">
                   <input type="hidden" name="_method" value="PUT">
                   <input type="submit" value="I will do this">
@@ -33,7 +54,7 @@
                 <li><%= chore.name %></li>
                 <li>Being done by <a href="/user/<%= chore.user_id %>"><%= chore.user.user_name %></a></li> 
               <% end %>
-
+                
             <% end %>
             <% if current_user.is_admin == true %>
             <form method="get" action="/chore/change">

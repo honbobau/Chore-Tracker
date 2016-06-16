@@ -1,5 +1,3 @@
-require "pry"
-
 #creates a group and adds the group id to the current user
 post "/group/create" do
 	name = params[:group_name]

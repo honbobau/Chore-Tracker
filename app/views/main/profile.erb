@@ -1,8 +1,9 @@
 <div class="main">
   <div class="container">
     <div class="row">
-      <p><%= @user.user_name %></p>
-      <p><%= @user.real_name %></p>
+      <p>user_name: <%= @user.user_name %></p>
+      <p>real name: <%= @user.real_name %></p>
+      <p>chores completed: <%= @user.chores.count %></p>
     </div>
   </div>
 </div>

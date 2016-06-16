@@ -1,0 +1,11 @@
+<div class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown"><%= chore.name %></a>
+  <ul class="dropdown-menu">
+    <li><% if chore.comments %>
+      <% Comment.find_by(chore.comments).each do |comment| %>
+        <p><%= comment.chore.user.user_name %> says: "<%= comment.content %>"</p>
+      <% end %>
+    <% end %></li>
+  </ul>
+</div>  
+  
