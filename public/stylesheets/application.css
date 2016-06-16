@@ -9,7 +9,13 @@ body {
   background-color: #D25150; }
 
 .footer {
+<<<<<<< HEAD
   background-color: #446B88; }
+=======
+  background-color: #263648;
+  bottom: 0px; 
+}
+>>>>>>> 0d6e251b0d972cca8d939efe49f802b6bfacad31
 
 .group_buttons {
   display: inline; }
@@ -32,4 +38,7 @@ body {
 .chore_list {
   padding: 0; }
 
+#intro {
+  font-family: 'Montserrat';
+}
 /*# sourceMappingURL=application.css.map */

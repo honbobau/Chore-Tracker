@@ -12,6 +12,11 @@ helpers do
   def current_group
   	current_user.group_id
   end
+
+  def group_admin_check
+    Group.find_by(id: current_user.group_id)
+  end
+
 end
 
 #redirects to the main app page and passes a list of chores related to the group id

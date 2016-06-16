@@ -3,7 +3,7 @@
   <ul class="dropdown-menu">
     <!-- prints out comments left on the chore if they exist -->
     <li>
-      <% if !chore.comments.empty?%>
+      <% if !chore.comments.empty? %>
         <% chore.comments.each do |comment| %>
           <p>"<%= comment.content %>" -<%= comment.user.user_name %></p>
         <% end %>
