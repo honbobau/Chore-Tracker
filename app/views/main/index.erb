@@ -3,32 +3,44 @@
     <div class="row">
       <div class="col-md-8 col-md-offset-3 col-centered">
         <ul class="chore_list">
+          <!-- only displays chores if the user is in a group -->
           <% if current_group %>
             <h3>Today's Chores</h3>
             <% @chores.each do |chore| %>
+              <!-- if the chore is completed it shows as crossed out -->
               <% if chore.completed == true %>
                 <li class="finished"><%= chore.name %></li>
-                <li>Completed by <%= chore.user.user_name %></li>
+                <li>Completed by <a href="/user/<%= chore.user_id %>"><%= chore.user.user_name %></a></li>
+
+              <!-- if the chore is not assigned to a user, allow the user take responsibility for it -->
               <% elsif !chore.user_id %>
                 <li><%= chore.name %></li>
                 <form method="post" action="/add_id/<%= chore.id %>">
                   <input type="hidden" name="_method" value="PUT">
                   <input type="submit" value="I will do this">
                 </form>
+
+              <!-- if current user is responsible for the chore they have the option of declaring it finished -->
               <% elsif chore.user_id == current_user.id %>
                 <li><%= chore.name %></li>
                 <form method="post" action="/complete/<%= chore.id %>">
                   <input type="hidden" name="_method" value="PUT">
                   <input type="submit" value="finished!">
                 </form>
+
+              <!-- if chore is assigned to another user, display which user has responsibility over it -->
               <% else %>
                 <li><%= chore.name %></li>
-                <li>Being done by <%= chore.user.user_name %></li> 
+                <li>Being done by <a href="/user/<%= chore.user_id %>"><%= chore.user.user_name %></a></li> 
               <% end %>
+
             <% end %>
+          <!-- prompts the user to join or create a group -->
           <% else %>
             <h3>Create or join a group to start doing housework!</h3>
           <% end %>
+
+          <!-- gives the admin user abiility to add more chores to the list -->
           <% if current_user.is_admin == true %>
             <form method="get" action="/change_list">
               <input type="submit" class="btn btn-info" value="Add a new chore!">

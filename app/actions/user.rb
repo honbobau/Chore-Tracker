@@ -12,7 +12,8 @@ post "/signup" do
 	@user = User.new({ user_name: username, real_name: realname, password: password})
 
 	if @user.save
-		redirect(to('/'))
+    session[:user_id] = @user.id
+		redirect(to('/main'))
 	else
 		erb(:signup)
 	end
@@ -35,7 +36,7 @@ post "/login" do
 	end
 end
 
-get '/user' do
+get '/user/:id' do
 	@user = User.find params[:id]
 	erb :'main/profile'
 end

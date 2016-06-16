@@ -34,6 +34,7 @@
           <% if current_user %>
             <!-- checks to see if user is in a group -->
             <div class="col-md-4 group_buttons">
+
               <!-- option to leave the group if they are -->
               <% if current_group %>
                 <p>You are a part of <%= current_user.group.group_name %>
@@ -41,6 +42,7 @@
                   <input type="hidden" name="_method" value="PUT">
                   <input type="submit" value="Stop helping these people!">
                 </form>
+
               <!-- option to create or join a group if not -->
               <% else %>
                 <form method="post" action="/create">
@@ -83,6 +85,7 @@
   </div>
   <%= yield %>
 
+  <!-- yet to implement -->
   <div class="footer">
     <div class="container">
     </div>
