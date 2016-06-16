@@ -4,7 +4,7 @@
       <div class="col-md-8 col-md-offset-3 col-centered">
         <ul class="chore_list">
           <!-- only displays chores if the user is in a group -->
-          <% if current_group %>
+          <% if current_group_id %>
             <h3>Today's Chores</h3>
             <% @chores.each do |chore| %>
               <!-- if the chore is completed it shows as crossed out -->
@@ -49,7 +49,12 @@
             <form method="get" action="/chore/change">
               <input type="submit" class="btn btn-info" value="Add a new chore!">
             </form>
-          <% end %>
+
+            <form method="get" action="/user/change_admin">
+              <input type="submit" class="btn btn-info" value="Change Admin for group!">
+            </form>
+
+            <% end %>
           <!-- prompts the user to join or create a group -->
           <% else %>
             <h3>Create or join a group to start doing housework!</h3>

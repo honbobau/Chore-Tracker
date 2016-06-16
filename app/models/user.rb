@@ -4,7 +4,12 @@ class User < ActiveRecord::Base
 
 	belongs_to :group
   
-	validates :user_name, :password, presence: true, uniqueness: true
-	validates :user_name, length: {in: 3..20 } 
+	validates :user_name, presence: true, 
+												uniqueness: true,
+												length: {in: 3..20}
+	validates :password, presence: true,
+											 confirmation: true
+	validates :password_confirmation, presence: true,
+																		on: :create
 
 end

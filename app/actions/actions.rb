@@ -9,7 +9,7 @@ helpers do
   end
 
   #helper to detect if the current user currently is logged into a group
-  def current_group
+  def current_group_id
   	current_user.group_id
   end
 
