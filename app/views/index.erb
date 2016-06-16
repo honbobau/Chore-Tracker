@@ -15,33 +15,34 @@
     <!-- app stats tracker -->
     <div class="row row-centered appStats">
       <div class="col-md-4 col-centered">
-        <h5>people making their chores a breeze</h5>
+        <h4>people making their chores a breeze</h4>
         <div id="circle_border"><%= User.count %></div>
       </div>
 
       <div class="col-md-4 col-centered">
-        <h5>chores being easily finished</h5>
+        <h4>chores being easily finished</h4>
         <div id="circle_border"><%= Chore.count %></div>
       </div>
 
       <div class="col-md-4 col-centered">
-        <h5>the buzz our users are generating</h5>
+        <h4>the buzz our users are generating</h4>
         <div id="circle_border"><%= Comment.count %>
       </div>
     </div>
   </div>
 
 </div>
+</div>
 
 <div class="main indexMain">
   <div class="container">
     <div class="row">
 
-      <div class="col-md-3 text-centered">
+      <div class="col-md-4 text-centered">
         <h2>Why should you use ChoreTracker?</h2>
       </div>
 
-      <div class="col-md-6 pull-right">
+      <div class="col-md-7" id="left-border">
         <h3>The answer is simple!</h3>
         <p>Everyone knows the pain for sharing chores. Using ChoreTracker you can organize things superduper!</p>
         <br>

@@ -33,13 +33,6 @@ body {
 .indexSignUp {
   background: url("../pictures/jumbotron.jpg") center -180px no-repeat;
   background-size: cover;
-  .col-md-12 {
-  }
-  .appStats{
-    h5 {
-
-    }
-  }
 }
 
 .indexMain {
@@ -48,7 +41,7 @@ body {
 }
 
 .appStats {
-  padding-top: 50px;
+  padding-top: 80px;
 }
 
 /* --- */
@@ -84,9 +77,16 @@ body {
 }
 
 #circle_border {
-    height: 20px;
-    width: 20px;
+    height: 60px;
+    width: 60px;
     border: 2px solid $headerColor;
     border-radius: 100%;
-    color: #17A3DDl;
+    color: #17A3DD;
+    font-size: 40px;
+    margin: auto;
+}
+
+#left-border {
+  border-left: 3px inset #ffb3b3;
+  padding-left: 100px;
 }
