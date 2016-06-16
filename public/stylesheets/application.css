@@ -1,36 +1,30 @@
 /* layout */
 body {
-  font-family: 'Montserrat', sans-serif;
-}
+  font-family: 'Montserrat', sans-serif; }
+  body a:hover {
+    text-decoration: none; }
 
-body a:hover {
-  text-decoration: none;
-}
 /* header */
 .header {
-  background-color: #D25150;
-}
+  background-color: #D25150; }
 
 .footer {
-  .background-color: #263648;
-}
+  .background-color: #263648; }
 
 .group_buttons {
-  display: inline;
-}
+  display: inline; }
 
 /* landing page */
 .landing_page {
-  text-align: center
-}
+  text-align: center; }
 
 /* --- */
 /* main page */
 .col-centered {
   float: none;
-  margin: 0 auto;
-}
+  margin: 0 auto; }
 
 .chore_list {
-  padding: 0;
-}
+  padding: 0; }
+
+/*# sourceMappingURL=application.css.map */

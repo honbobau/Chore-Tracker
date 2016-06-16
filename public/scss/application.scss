@@ -1,0 +1,36 @@
+/* layout */
+body {
+  a:hover {
+    text-decoration: none;
+  }
+  font-family: 'Montserrat', sans-serif;
+}
+
+/* header */
+.header {
+  background-color: #D25150;
+}
+
+.footer {
+  .background-color: #263648;
+}
+
+.group_buttons {
+  display: inline;
+}
+
+/* landing page */
+.landing_page {
+  text-align: center
+}
+
+/* --- */
+/* main page */
+.col-centered {
+  float: none;
+  margin: 0 auto;
+}
+
+.chore_list {
+  padding: 0;
+}

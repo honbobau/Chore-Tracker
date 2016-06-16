@@ -1,0 +1,14 @@
+<div class="dropdown">
+  <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+    <%= chore.name %>
+    <span class="caret"></span>
+  </button>
+  <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+    <% Comment.find_by(chore.comments).each do |comment| %>
+      <p><%= comment.chore.user.user_name %> says: "<%= comment.content %>"</p>
+     <% end %>
+    <form method="post" action="/comment/new/<%= chore.id %>">
+      <input type="text" name="text" value="add a comment!">
+    </form>
+  </ul>
+</div>
