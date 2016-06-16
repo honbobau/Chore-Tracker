@@ -9,15 +9,17 @@
             <% @chores.each do |chore| %>
               <!-- if the chore is completed it shows as crossed out -->
               <% if chore.completed == true %>
-                <li class="finished"><%= chore.name %></li>
+                <li class="finished">
+                  <%= erb :"/main/partials/_add_comment_to_chore", locals: {chore: chore} %>
+                </li>
                 <li>Completed by <a href="/user/<%= chore.user_id %>"><%= chore.user.user_name %></a></li>
 
               <!-- if the chore is not assigned to a user, allow the user take responsibility for it -->
               <% elsif !chore.user_id %>
+                <!-- dropdown menu for comments -->
                 <li>
-                  <!-- dropdown menu for comments -->
-
-                </li>
+                  <%= erb :"/main/partials/_add_comment_to_chore", locals: {chore: chore} %>
+                </li>¯
                 <form method="post" action="/chore/add/<%= chore.id %>">
                   <input type="hidden" name="_method" value="PUT">
                   <input type="submit" value="I will do this">
@@ -25,7 +27,9 @@
 
               <!-- if current user is responsible for the chore they have the option of declaring it finished -->
               <% elsif chore.user_id == current_user.id %>
-                <li><%= chore.name %></li>
+                <li>
+                  <%= erb :"/main/partials/_add_comment_to_chore", locals: {chore: chore} %>
+                </li>
                 <form method="post" action="/chore/complete/<%= chore.id %>">
                   <input type="hidden" name="_method" value="PUT">
                   <input type="submit" value="finished!">
@@ -33,7 +37,9 @@
 
               <!-- if chore is assigned to another user, display which user has responsibility over it -->
               <% else %>
-                <li><%= chore.name %></li>
+                <li>
+                  <%= erb :"/main/partials/_add_comment_to_chore", locals: {chore: chore} %>
+                </li>
                 <li>Being done by <a href="/user/<%= chore.user_id %>"><%= chore.user.user_name %></a></li> 
               <% end %>
                 
