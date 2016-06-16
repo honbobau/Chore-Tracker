@@ -16,24 +16,7 @@
               <% elsif !chore.user_id %>
                 <li>
                   <!-- dropdown menu for comments -->
-                  <div class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><%= chore.name %></a>
-                    <ul class="dropdown-menu">
-                      <!-- prints out comments left on the chore if they exist -->
-                      <li>
-                        <% if !chore.comments.empty?%>
-                          <% chore.comments.each do |comment| %>
-                            <p>"<%= comment.content %>" -<%= comment.chore.user %></p>
-                          <% end %>
-                        <% end %>
-                      </li>
-                      <!-- allows the user to leave a comment -->
-                      <form method="post" action="/comment/new/<%= chore.id %>">
-                        <input type="text" name="text" value="leave a comment">
-                        <input type="submit" value="add">
-                      </form>
-                    </ul>
-                  </div>  
+                  <%= render partial: "/partials/add_comment_to_chore" %>
 
                 </li>
                 <form method="post" action="/chore/add/<%= chore.id %>">
