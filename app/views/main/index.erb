@@ -44,7 +44,8 @@
               <% end %>
                 
             <% end %>
-            <% if current_user.is_admin == true %>
+
+            <% if current_user.id == group_admin_check.admin_id %>
             <form method="get" action="/chore/change">
               <input type="submit" class="btn btn-info" value="Add a new chore!">
             </form>

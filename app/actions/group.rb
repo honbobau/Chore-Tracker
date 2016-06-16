@@ -1,9 +1,9 @@
 #creates a group and adds the group id to the current user
 post "/group/create" do
 	name = params[:group_name]
-	@group = Group.new({group_name: name})
+	@group = Group.new({group_name: name, admin_id: current_user.id})
 	@group.save
-	current_user.update(group_id: @group.id, is_admin: true)
+	current_user.update(group_id: @group.id)
 	redirect '/main'
 end
 
