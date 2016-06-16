@@ -16,7 +16,6 @@
               <% elsif !chore.user_id %>
                 <li>
                   <!-- dropdown menu for comments -->
-                  <%= render partial: "/partials/add_comment_to_chore" %>
 
                 </li>
                 <form method="post" action="/chore/add/<%= chore.id %>">

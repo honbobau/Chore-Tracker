@@ -9,14 +9,9 @@ post "/user/new" do
 	username = params[:user_name]
 	realname = params[:real_name]
 	password = params[:password]
-	password_confirm = params[:password_confirmation]
-
- 	if password != password_confirm
- 		"Password and confirm field do not match"
- 		redirect '/user/new'
- 	else
-		@user = User.new({ user_name: username, real_name: realname, password: password})
-	end
+ 
+	@user = User.new({ user_name: username, real_name: realname, password: password})
+	
 
 	if @user.save
     session[:user_id] = @user.id

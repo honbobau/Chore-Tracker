@@ -9,8 +9,10 @@ body {
   background-color: #D25150; }
 
 .footer {
-  background-color: #263648; 
-  height: 142px;
+  background-color: #263648;
+  position: absolute;
+  width: 100%;
+  bottom: 0px; 
 }
 
 .group_buttons {
