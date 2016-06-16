@@ -9,7 +9,9 @@ body {
   background-color: #D25150; }
 
 .footer {
-  .background-color: #263648; }
+  background-color: #263648; 
+  height: 142px;
+}
 
 .group_buttons {
   display: inline; }
