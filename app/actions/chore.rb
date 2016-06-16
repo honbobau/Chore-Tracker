@@ -10,14 +10,14 @@ post "/create_chore" do
   redirect "/main"
 end
 
-put "/add_id" do
+put "/add_id/:id" do
 	chore = Chore.find(params[:id])
 	chore.update(user_id: current_user.id)
 	redirect '/main'
 end
 
-put '/complete' do
-	chore = Chore.find(params[:chore_id])
+put '/complete/:id' do
+	chore = Chore.find(params[:id])
 	chore.update(completed: true)
 	redirect '/main'
 end

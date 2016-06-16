@@ -35,6 +35,11 @@ post "/login" do
 	end
 end
 
+get '/user' do
+	@user = User.find params[:id]
+	erb :'main/profile'
+end
+
 #gets the user outta here
 get '/logout' do
     session[:user_id] = nil

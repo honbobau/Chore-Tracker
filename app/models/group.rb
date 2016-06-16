@@ -1,4 +1,5 @@
 class Group < ActiveRecord::Base
 	has_many :users
-	has_many :chores
+	has_many :chores, dependent: :destroy
+	validates :group_name, presence: true, uniqueness: true
 end
