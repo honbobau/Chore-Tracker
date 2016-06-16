@@ -1,10 +1,10 @@
 #brings up the page where admin can add or remove chores
-get "/change_list" do
+get "/chore/change" do
 	erb :'/main/change_list'
 end
 
 #the action that creates a chore
-post "/create_chore" do
+post "/chore/create" do
 	name = params[:name]
 	desc = params[:description]
 	chore = Chore.new({name: name, description: desc, completed: false, group_id: current_user.group_id})
@@ -13,21 +13,21 @@ post "/create_chore" do
 end
 
 #attaches a user id to a chore
-put "/add_id/:id" do
+put "/chore/add/:id" do
 	chore = Chore.find(params[:id])
 	chore.update(user_id: current_user.id)
 	redirect '/main'
 end
 
 #allows a user to complete a task
-put '/complete/:id' do
+put '/chore/complete/:id' do
 	chore = Chore.find(params[:id])
 	chore.update(completed: true)
 	redirect '/main'
 end
 
 #allows an admin to delete a chore
-delete '/removechore' do
+delete '/chore/removechore/:id' do
 	chore = Chore.find(params[:chore_id])
 	chore.destroy
 	redirect "/main"

@@ -38,18 +38,18 @@
               <!-- option to leave the group if they are -->
               <% if current_group %>
                 <p>You are a part of <%= current_user.group.group_name %>
-                <form method="post" action="/leave">
+                <form method="post" action="/group/leave">
                   <input type="hidden" name="_method" value="PUT">
                   <input type="submit" value="Stop helping these people!">
                 </form>
 
               <!-- option to create or join a group if not -->
               <% else %>
-                <form method="post" action="/create">
+                <form method="post" action="/group/create">
                   <input type="text" name="group_name">
                   <input type="submit" value="Create a Group">
                 </form>
-                <form method="post" action="/join">
+                <form method="post" action="/group/join">
                   <input type="hidden" name="_method" value="PUT">
                   <input type="text" name="group_name">
                   <input type="submit" value="Join a Group">
@@ -60,7 +60,7 @@
             <!-- logs the user out -->
             <div class="col-md-4">
               <p>Hello, <%= current_user.user_name %></p>
-              <form method="get" action="/logout">
+              <form method="get" action="/user/logout">
                 <input type="submit" value="Get me outta here!">
               </form>
             </div>
@@ -68,7 +68,7 @@
           <!-- if user is not logged in give the option to log in -->
           <% else %>
             <div class="col-md-3 pull-right">
-              <form method="post" action="/login">
+              <form method="post" action="/user/login">
                 <h4>Sign In</h4>
                   <label>Username:</label>
                   <input type="text" name="user_name">
