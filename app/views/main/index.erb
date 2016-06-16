@@ -15,7 +15,7 @@
               <!-- if the chore is not assigned to a user, allow the user take responsibility for it -->
               <% elsif !chore.user_id %>
                 <li><%= chore.name %></li>
-                <form method="post" action="/add_id/<%= chore.id %>">
+                <form method="post" action="/chore/add/<%= chore.id %>">
                   <input type="hidden" name="_method" value="PUT">
                   <input type="submit" value="I will do this">
                 </form>
@@ -23,7 +23,7 @@
               <!-- if current user is responsible for the chore they have the option of declaring it finished -->
               <% elsif chore.user_id == current_user.id %>
                 <li><%= chore.name %></li>
-                <form method="post" action="/complete/<%= chore.id %>">
+                <form method="post" action="/chore/complete/<%= chore.id %>">
                   <input type="hidden" name="_method" value="PUT">
                   <input type="submit" value="finished!">
                 </form>
@@ -35,17 +35,18 @@
               <% end %>
                 
             <% end %>
+            <% if current_user.is_admin == true %>
+            <form method="get" action="/chore/change">
+              <input type="submit" class="btn btn-info" value="Add a new chore!">
+            </form>
+          <% end %>
           <!-- prompts the user to join or create a group -->
           <% else %>
             <h3>Create or join a group to start doing housework!</h3>
           <% end %>
 
           <!-- gives the admin user abiility to add more chores to the list -->
-          <% if current_user.is_admin == true %>
-            <form method="get" action="/change_list">
-              <input type="submit" class="btn btn-info" value="Add a new chore!">
-            </form>
-          <% end %>
+          
 
         </ul>
       </div>
