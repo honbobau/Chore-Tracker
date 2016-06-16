@@ -2,6 +2,7 @@
 post "/group/create" do
 	name = params[:group_name]
 	@group = Group.new({group_name: name})
+	@group.save
 	current_user.update(group_id: @group.id, is_admin: true)
 	redirect '/main'
 end
