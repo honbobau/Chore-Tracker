@@ -4,7 +4,6 @@ require "pry"
 post "/group/create" do
 	name = params[:group_name]
 	@group = Group.new({group_name: name})
-	@group.save
 	current_user.update(group_id: @group.id, is_admin: true)
 	redirect '/main'
 end
@@ -14,6 +13,7 @@ put "/group/join" do
 	name = params[:group_name]
 	@group = Group.find_by(group_name: name)
  	if @group == nil	
+ 		@error_message = "Group cannot be found!"
 		redirect '/main'
 	else
 		current_user.update(group_id: @group.id)

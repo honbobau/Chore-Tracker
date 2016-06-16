@@ -1,5 +1,6 @@
 #calls the signup page
 get "/user/new" do
+	@user = User.new
 	erb(:signup)
 end
 
@@ -31,9 +32,14 @@ post "/user/login" do
 		session[:user_id] = user.id
 		redirect to '/main'
 	else
-		@error_message = "Login Error!"
 		erb(:index)
 	end
+end
+
+#gets the user outta here
+get '/user/logout' do
+    session[:user_id] = nil
+    erb(:index)
 end
 
 get '/user/:id' do
@@ -41,9 +47,5 @@ get '/user/:id' do
 	erb :'main/profile'
 end
 
-#gets the user outta here
-get 'user/logout' do
-    session[:user_id] = nil
-    erb(:index)
-end
+
 

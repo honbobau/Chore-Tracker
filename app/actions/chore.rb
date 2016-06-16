@@ -1,5 +1,6 @@
 #brings up the page where admin can add or remove chores
 get "/chore/change" do
+	@chore = Chore.new
 	erb :'/main/change_list'
 end
 
@@ -7,9 +8,12 @@ end
 post "/chore/create" do
 	name = params[:name]
 	desc = params[:description]
-	chore = Chore.new({name: name, description: desc, completed: false, group_id: current_user.group_id})
-	chore.save
-  redirect "/main"
+	@chore = Chore.new({name: name, description: desc, completed: false, group_id: current_user.group_id})
+	if @chore.save
+  	redirect "/main"
+	else
+		erb :'/main/change_list'
+	end
 end
 
 #attaches a user id to a chore

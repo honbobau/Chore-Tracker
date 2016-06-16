@@ -10,6 +10,11 @@
       <input type="text" name="description">
       <input type="submit" class="btn btn-info" value="Add Chore!">
       </form>
+      <ul class= "errors">
+        <% @chore.errors.full_messages.each do |message| %>
+          <li> <%= message %> </li>
+        <% end %>
+      </ul>
     </div>
   </div>
 </div>
