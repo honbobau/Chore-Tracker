@@ -1,20 +1,54 @@
-<div class="jumbotron landing_page">
+<div class="jumbotron indexSignUp" id="jumbo">
 
   <div class="container">
     <div class="row">
-      <!-- sign up page -->
-      <div class="col-md-6">
-        <h2>Tired of chores? Do more of them with this app!</h2>
+      <!-- jumbotron and signup prompt -->
+      <div class="col-md-12 text-centered">
+        <h1>Tired of chores?</h1> 
+        <p>Do more of them with this app!</p>
         <form method="get" action="/user/new">
-          <input type="submit" value="sign me up!">
+          <button type="submit" class="btn btn-default">heck yes!</button>
         </form>
       </div>
-      <!-- app stats -->
-      <div class="col-md-5 col-md-offset-1 appStats">
-        <h4>Number of people making chores easy: <%= User.count %></h4>
-        <h4>Number of chores finished: <%= Chore.count %></h4>
+    </div>
+
+    <!-- app stats tracker -->
+    <div class="row row-centered appStats">
+      <div class="col-md-4 col-centered">
+        <h5>people making their chores a breeze</h5>
+        <div id="circle_border"><%= User.count %></div>
+      </div>
+
+      <div class="col-md-4 col-centered">
+        <h5>chores being easily finished</h5>
+        <div id="circle_border"><%= Chore.count %></div>
+      </div>
+
+      <div class="col-md-4 col-centered">
+        <h5>the buzz our users are generating</h5>
+        <div id="circle_border"><%= Comment.count %>
       </div>
     </div>
   </div>
 
 </div>
+
+<div class="main indexMain">
+  <div class="container">
+    <div class="row">
+
+      <div class="col-md-3 text-centered">
+        <h2>Why should you use ChoreTracker?</h2>
+      </div>
+
+      <div class="col-md-6 pull-right">
+        <h3>The answer is simple!</h3>
+        <p>Everyone knows the pain for sharing chores. Using ChoreTracker you can organize things superduper!</p>
+        <br>
+        <p>Whether it is sweeping, mopping, or doing dishes, ChoreTracker will make sure everyone has responsibility to share! Hurray!</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+        
