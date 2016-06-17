@@ -2,41 +2,41 @@
   <div class="container">
     <div class="row">
       <!-- sign in form -->
-      <div class="col-md-4 col-md-offset-2 signup_form">
+      <div style="width: 350px;" class="col-md-4 col-md-offset-1 signup_form">
         <form method="post" action="/user/new">
-        <div class="block">
-          <label>Username:</label>
-          <input type="text" name="user_name">
-        </div>
+          <div class="block">
+            <label>Username:</label>
+            <input class="pull-right" type="text" name="user_name">
+          </div>
 
-        <div class="block">
-          <label>Real Name:</label>
-          <input type="text" name="real_name">
-        </div>
+          <div class="block">
+            <label>Real Name:</label>
+            <input class="pull-right" type="text" name="real_name">
+          </div>
 
-        <div class="block">
-          <label>Password:</label>
-          <input type="password" name="password">
-        <div class="block">  
-          <label> Confirm Password: </label>
-          <input type="password" name="password_confirmation">
-        </div>
+          <div class="block">
+            <label>Password:</label>
+            <input class="pull-right" type="password" name="password">
+          </div>
+          <div class="block">  
+            <label> Confirm Password: </label>
+            <input class="pull-right" type="password" name="password_confirmation">
+          </div>
 
-        <div>
-          <button type="submit" class="btn btn-default">sign up</button>
-        </div>
-        </div>
+          <div>
+            <button class="pull-right" type="submit" class="btn btn-default">sign up</button>
+          </div>
         </form>
+      </div>
 
         <ul class= "errors">
         <% @user.errors.full_messages.each do |message| %>
           <li> <%= message %> </li>
         <% end %>
         </ul>
-      </div>
 
       <!-- feature list -->
-      <div class="col-md-6 signup_features">
+      <div class="col-md-6 col-md-offset-1 signup_features">
         <ul>
           <h3>improve your life drastically!</h3>
           <li><span class="glyphicon glyphicon-user" aria-hidden="true"></span> share chores with the people you live with</li>
@@ -51,6 +51,7 @@
           <br>
         </ul>
       </div>
+
     </div>
   </div>
 </div>
