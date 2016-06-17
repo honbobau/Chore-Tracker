@@ -1,4 +1,3 @@
 $(document).ready(function() {
-  //debugger;
-  //$('.dropdown-toggle').dropdown();
+  $('.dropdown-toggle').dropdown();
 });
