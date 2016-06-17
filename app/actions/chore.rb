@@ -38,20 +38,11 @@ delete '/chore/removechore/:chore_id' do
 	redirect "/main"
 end
 
-# # allows an admin to rate a completed chore
-# put '/user/chore/rating/:chore_id' do
-# 	rating = params[:rating]
-# 	chore = Chore.find(params[:chore_id])
-# 	chore.update(rating: rating)
-# 	redirect '/main'
-# end
-
 # allows an admin to clear the chores out
 put '/chore/clear' do
-	chore = Chore.find_by(group_id: current_user.group_id, completed: true)
+	chore = Chore.where(group_id: current_user.group_id, completed: true)
 	chore.map do |chore|
 		chore.update(show?: false)
-		chore.save
 	end	
 	redirect "/main"
 end
