@@ -8,13 +8,19 @@
       <input type="text" name="name">
       <label>Chore description</label>
       <input type="text" name="description">
+      <select name="difficulty">
+        <option value="1">Easy</option>
+        <option value="2">Medium</option>
+        <option value="3">Hard</option>
+      </select>
       <input type="submit" class="btn btn-info" value="Add Chore!">
       </form>
-      <ul class= "errors">
-        <% @chore.errors.full_messages.each do |message| %>
-          <li> <%= message %> </li>
-        <% end %>
-      </ul>
+
+        <ul class= "errors">
+          <% @chore.errors.full_messages.each do |message| %>
+            <li> <%= message %> </li>
+          <% end %>
+        </ul>
     </div>
   </div>
 </div>
