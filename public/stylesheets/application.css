@@ -49,18 +49,25 @@ body a:hover {
     color: #F1F2F3;
     padding-bottom: 15px; }
 
+.appStats {
+  padding-top: 60px;
+  padding-bottom: 60px; }
+
 /* ------------------------------------------- */
 /* main page */
 .col-centered {
   float: none;
   margin: 0 auto; }
 
-.appStats {
-  padding-top: 60px;
-  padding-bottom: 60px; }
-
 .chore_list {
   padding: 0; }
+  .chore_list li {
+    list-style-type: none;
+    padding-bottom: 5px; }
+  .chore_list #got_this {
+    padding: 2px 4px; }
+  .chore_list form {
+    padding-left: 10px; }
 
 /* ------------------------------------------- */
 /* sign up */

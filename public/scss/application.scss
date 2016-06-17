@@ -74,6 +74,11 @@ body {
     padding-bottom: 15px;
   }
 }
+
+.appStats {
+  padding-top: 60px;
+  padding-bottom: 60px;
+}
 /* ------------------------------------------- */
 /* main page */
 
@@ -83,13 +88,18 @@ body {
 
 }
 
-.appStats {
-  padding-top: 60px;
-  padding-bottom: 60px;
-}
-
 .chore_list {
   padding: 0;
+  li { 
+    list-style-type: none;
+    padding-bottom: 5px;
+  }
+  #got_this {
+    padding: 2px 4px;
+  } 
+  form {
+    padding-left: 10px;
+  }
 }
 
 /* ------------------------------------------- */
