@@ -8,7 +8,8 @@ end
 post "/chore/create" do
 	name = params[:name]
 	desc = params[:description]
-	@chore = Chore.new({name: name, description: desc, completed: false, group_id: current_user.group_id})
+	difficulty = params[:difficulty]
+	@chore = Chore.new({name: name, description: desc, completed: false, group_id: current_user.group_id, difficulty: difficulty})
 	if @chore.save
   	redirect "/main"
 	else

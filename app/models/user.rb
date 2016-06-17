@@ -16,5 +16,4 @@ class User < ActiveRecord::Base
 		completed_chores = self.chores.select {|chore| chore[:completed] == true}
 		completed_chores.inject(0) {|sum, chore| sum + chore[:difficulty]}
 	end
-
 end
