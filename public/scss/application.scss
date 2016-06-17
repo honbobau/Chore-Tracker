@@ -81,8 +81,6 @@ body {
   }
 }
 
-
-
 /* ------------------------------------------- */
 /* main page */
 
@@ -135,6 +133,19 @@ body {
       padding-top: 10px;
     }
   }
+}
+
+/* ------------------------------------------- */
+/* Profile page*/
+
+#profileCard {
+  padding-top: 25px;
+}
+
+.profileDisplay {
+  background: url("../pictures/user-icon.png") no-repeat;
+  background-size: cover;
+  height: 300px; 
 }
 
 /* ------------------------------------------- */
