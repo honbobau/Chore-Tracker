@@ -40,7 +40,6 @@ ActiveRecord::Schema.define(version: 20160617195618) do
     t.string  "user_name"
     t.string  "real_name"
     t.string  "password"
-    t.boolean "is_admin",  default: false
     t.integer "group_id"
   end
 
