@@ -2,11 +2,14 @@
 
 $headerColor: #D25150;
 $footerColor: #263648;
-$mainFontColor: #F1F2F3;
-$secondaryFontColor: #FFF;
+$lightFontColor: #F1F2F3;
+$darkFontColor: #312525;
+
+* {
+  font-family: 'Montserrat', sans-serif;
+}
 
 body {
-  font-family: 'Montserrat', sans-serif;
   a {
     color: inherit;
   }
@@ -15,12 +18,17 @@ body {
   }
 }
 
+/* ------------------------------------------- */
+
 /* header */
 .header {
-  color: $mainFontColor;
+  color: $lightFontColor;
   background-color: $headerColor;
-  a:hover{
+  a:hover {
     color: inherit;
+  }
+  input, select, textarea {
+    color: $darkFontColor;
   }
 }
 
@@ -28,7 +36,7 @@ body {
   background-color: $footerColor;
   padding: 20px 0px;
   margin: 0;
-  color: $mainFontColor;
+  color: $lightFontColor;
 }
 
 .group_buttons {
@@ -36,15 +44,16 @@ body {
 }
 
 
-/* --- */
+/* ------------------------------------------- */
 /* landing page */
+
 .indexSignUp {
   background: url("../pictures/jumbotron.jpg") center -100px no-repeat;
   background-size: cover;
   height: 480px;
   .btn {
     background-color: #312525;
-    color: #e7e7e7;
+    color: $lightFontColor;
     font-size: 20px;
   }
 }
@@ -52,10 +61,22 @@ body {
 .indexMain {
   padding: 60px 0;
   background-color: #F7F7F7;
+  h2 {
+    padding-top: 30px;
+  }
 }
 
-/* --- */
+
+.supporting {
+  background-color: $headerColor;
+  h4{
+    color: $lightFontColor;
+    padding-bottom: 15px;
+  }
+}
+/* ------------------------------------------- */
 /* main page */
+
 .col-centered {
   float: none;
   margin: 0 auto;
@@ -71,8 +92,32 @@ body {
   padding: 0;
 }
 
-/* --- */
+/* ------------------------------------------- */
+/* sign up */
+.signup_main {
+  background-color: #F7F7F7;
+  padding-bottom: 20px;
+}
+.signup_form {
+  padding: 100px 0 60px 0;
+  .block{
+    padding-bottom: 20px;
+  }
+}
+
+.signup_features {
+  margin-top: 30px;
+  border: 1px solid black;
+  border-radius: 5%;
+  li {
+    list-style-type: none;
+    padding-top: 10px;
+  }
+}
+
+/* ------------------------------------------- */
 /* misc */
+
 .text-centered {
   text-align: center;
 }
@@ -95,16 +140,24 @@ body {
   position: absolute;
 }
 
+.inline-block {
+  display: inline-block;
+}
+
+.block {
+  display: block;
+}
+
 #jumbo {
   margin-bottom: 0;
 }
 
 #circle_border {
-    height: 60px;
-    width: 60px;
-    border: 2px solid $headerColor;
+    height: 65px;
+    width: 65px;
+    border: 2px solid $footerColor;
     border-radius: 100%;
-    color: #17A3DD;
+    color: $darkFontColor;
     font-size: 40px;
     margin: auto;
 }
