@@ -42,18 +42,6 @@
                   <input type="hidden" name="_method" value="PUT">
                   <input type="submit" value="Stop helping these people!">
                 </form>
-
-              <!-- option to create or join a group if not -->
-              <% else %>
-                <form method="post" action="/group/create">
-                  <input type="text" name="group_name">
-                  <input type="submit" value="Create a Group">
-                </form>
-                <form method="post" action="/group/join">
-                  <input type="hidden" name="_method" value="PUT">
-                  <input type="text" name="group_name">
-                  <input type="submit" value="Join a Group">
-                </form>
               <% end %>
             </div>
 

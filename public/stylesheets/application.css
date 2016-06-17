@@ -55,6 +55,9 @@ body a:hover {
 
 /* ------------------------------------------- */
 /* main page */
+.main {
+  padding-bottom: 30px; }
+
 .col-centered {
   float: none;
   margin: 0 auto; }
