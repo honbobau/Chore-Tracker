@@ -5,60 +5,76 @@
         <ul class="chore_list">
           <!-- only displays chores if the user is in a group -->
           <% if current_group %>
-            <h3>To-do</h3>
+            <h3 style="text-decoration: underline;">To-do:</h3>
             <% @chores.each do |chore| %>
               <!-- if the chore is completed it shows as crossed out -->
               <% if chore.completed == true %>
                 <li class="finished">
                   <%= erb :"/main/partials/_add_comment_to_chore_complete", locals: {chore: chore} %>
                 </li>
-                <li><span class="glyphicon glyphicon-user" style="color: green;" aria-hidden="true"></span>&nbsp;Completed by <a href="/user/<%= chore.user_id %>"><%= chore.user.user_name %></a></li>
+                <li>
+                  <span class="glyphicon glyphicon-user" style="color: green;" aria-hidden="true"></span>&nbsp;
+                  Completed by <a href="/user/<%= chore.user_id %>"><%= chore.user.user_name %></a>
+                </li>
 
               <!-- if the chore is not assigned to a user, allow the user take responsibility for it -->
               <% elsif !chore.user_id %>
                 <!-- dropdown menu for comments -->
-                <div class="inline-block">
-                <li>
-                  <%= erb :"/main/partials/_add_comment_to_chore_incomplete", locals: {chore: chore} %>
-                </li>
+                <div class="block">
+                  <div class="inline-block">
+                    <li>
+                      <%= erb :"/main/partials/_add_comment_to_chore_incomplete", locals: {chore: chore} %>
+                    </li>
+                  </div>
+                  <form class="inline-block" method="post" action="/chore/add/<%= chore.id %>">
+                    <input type="hidden" name="_method" value="PUT">
+                    <button type="submit" class="btn" id="got_this">i got this!</button>
+                  </form>
                 </div>
-                <form class="inline-block" method="post" action="/chore/add/<%= chore.id %>">
-                  <input type="hidden" name="_method" value="PUT">
-                  <button type="submit" class="btn" id="got_this">i got this!</button>
-                </form>
 
               <!-- if current user is responsible for the chore they have the option of declaring it finished -->
               <% elsif chore.user_id == current_user.id %>
-                <li>
-                  <%= erb :"/main/partials/_add_comment_to_chore_incomplete", locals: {chore: chore} %>
-                </li>
-                <form method="post" action="/chore/complete/<%= chore.id %>">
+              <div class="block">
+                <div class="inline-block">
+                  <li>
+                    <%= erb :"/main/partials/_add_comment_to_chore_in_progress", locals: {chore: chore} %>
+                  </li>
+                </div>
+                
+                <form class="inline-block" method="post" action="/chore/complete/<%= chore.id %>">
                   <input type="hidden" name="_method" value="PUT">
-                  <input type="submit" value="finished!">
+                  <button type="submit" class="btn" id="got_this">done!</button>
                 </form>
+              </div>
+                <li>
+                  <span class="glyphicon glyphicon-star-empty" aria-hidden="true" style="color: #ffc04c;"></span>&nbsp;
+                  I am doing this!
+                </li>
 
               <!-- if chore is assigned to another user, display which user has responsibility over it -->
               <% else %>
+
                 <li>
                   <%= erb :"/main/partials/_add_comment_to_chore_in_progress", locals: {chore: chore} %>
                 </li>
-                <li>Being done by <span class="glyphicon glyphicon-user" aria-hidden="true" style="color: #ffc04c;"></span>&nbsp;<a href="/user/<%= chore.user_id %>"><%= chore.user.user_name %></a></li> 
+                <li>
+                  <span class="glyphicon glyphicon-user" aria-hidden="true" style="color: #ffc04c;"></span>&nbsp;
+                  <a href="/user/<%= chore.user_id %>"><%= chore.user.user_name %> is taking care of this</a> 
+                </li> 
               <% end %>
                 
             <% end %>
 
-            <% if current_user.id == group_admin_check.admin_id %>
+          <!-- checks if user is an admin and gives them option to add new chores -->
+          <% if current_user.id == group_admin_check.admin_id %>
             <form style="padding-top: 10px" method="get" action="/chore/change">
               <input type="submit" class="btn btn-info" value="Add a new chore!">
             </form>
           <% end %>
-          <!-- prompts the user to join or create a group -->
+          <!-- prompts the user to join or create a group if not already in a group-->
           <% else %>
             <h3>Create or join a group to start doing housework!</h3>
           <% end %>
-
-          <!-- gives the admin user abiility to add more chores to the list -->
-          
 
         </ul>
       </div>
