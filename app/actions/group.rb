@@ -6,7 +6,6 @@ post "/group/create" do
 	@group = Group.new({group_name: name, admin_id: current_user.id})
 	@group.save
 	current_user.update(group_id: @group.id)
-	binding.pry
 	redirect '/main'
 end
 
