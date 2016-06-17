@@ -3,24 +3,34 @@
   <div class="container">
     <div class="col-md-4 col-centered">
       <h1>What chore would you like to create?</h1>
-      <form method="post" action="/chore/create">
-      <label>Chore name</label>
-      <input type="text" name="name">
-      <label>Chore description</label>
-      <input type="text" name="description">
-      <select name="difficulty">
-        <option value="1">Easy</option>
-        <option value="2">Medium</option>
-        <option value="3">Hard</option>
-      </select>
-      <input type="submit" class="btn btn-info" value="Add Chore!">
+      <form class="inputForm" method="post" action="/chore/create">
+      <div>
+        <label class="pull-left inline-block">Chore name</label>
+        <input class="pull-right inline-block" type="text" name="name">
+      </div>
+      <div class="block" style="padding-top:50px">
+        <label class="pull-left inline-block">Chore description</label>
+        <input class="pull-right inline-block" type="text" name="description">
+      </div>
+      <div class="block" style="padding-top:50px">
+        <label class="pull-left inline-block"> Difficulty </label>
+        <select class="pull-right inline-block" name="difficulty">
+          <option value="1">Easy</option>
+          <option value="2">Medium</option>
+          <option value="3">Hard</option>
+        </select>
+      </div>
+      <div style="clear:both;" class="block">
+      <input id="button" type="submit" class="btn btn-info pull-right" value="Add Chore!">
+      </div>
       </form>
-
+      <div style="clear: both;">
         <ul class= "errors">
           <% @chore.errors.full_messages.each do |message| %>
             <li> <%= message %> </li>
           <% end %>
         </ul>
+      </div>
     </div>
   </div>
 </div>
