@@ -32,26 +32,27 @@
           <!-- if a user is logged in -->
           <% if current_user %>
             <!-- checks to see if user is in a group -->
-            <div class="col-md-4 group_buttons">
+            <div class="col-md-4 pull-right group_buttons">
+
+              <!-- logs the user out -->
+              <div class="pull-right">
+                <p class="inline-block">Hello, <%= current_user.user_name %>!</p>
+                <form class="inline-block" method="get" action="/user/logout">
+                  <button type="submit" class="btn btn-default">Logout</button>
+                </form>
+              </div>
 
               <!-- option to leave the group if they are -->
               <% if current_group_id %>
-                <p>You are a part of <%= current_user.group.group_name %>
-                <form method="post" action="/group/leave">
-                  <input type="hidden" name="_method" value="PUT">
-                  <input type="submit" value="Stop helping these people!">
-                </form>
+                <div class="pull-right">
+                <p class="inline-block">Group: <%= current_user.group.group_name %></p>
+                  <form class="inline-block" method="post" action="/group/leave">
+                    <input type="hidden" name="_method" value="PUT">
+                    <button type="submit" class="btn btn-default">Leave</button>
+                  </form>
+                </div>
               <% end %>
             </div>
-
-            <!-- logs the user out -->
-            <div class="col-md-4">
-              <p>Hello, <%= current_user.user_name %></p>
-              <form method="get" action="/user/logout">
-                <input type="submit" value="Get me outta here!">
-              </form>
-            </div>
-
           <!-- if user is not logged in give the option to log in -->
           <% else %>
             <div class="col-md-5 pull-right">
@@ -64,7 +65,7 @@
       
                 <div class="inline-block">
                   <label class="block">Password:</label>
-                  <input type="text" name="password" placeholder="password">
+                  <input type="password" name="password" placeholder="password">
                 </div>
                 <div class="inline-block">
                   <button type="submit" class="btn btn-default">werkwerk</button>
@@ -83,15 +84,27 @@
   <div class="footer">
     <div class="container">
       <div class="row">
-        <div class="col-md-4">
+        <div class="col-md-3">
          <address>
-          <strong>Lighthouse Labs - 05/23 Cohort</strong><br>
-          46 Spadina Ave - 4th Floor<br>
-          Toronto, On M5V 2H8<br>
+          <strong>Lighthouse Labs - 05/23 Cohort</strong>
+          <br>
+          <br>
+          46 Spadina Ave - 4th Floor
+          <br>
+          Toronto, On M5V 2H8
+          <br>
           e: <a href="mailto:hello@lighthouselabs.ca">hello@lighthouselabs.ca</a>
          </address>
-         </div>
-        <div class="col-md-3 pull-right">
+        </div>
+
+        <div class="col-md-4">
+          <br>
+          <p>Created with care by:</p>
+          <p>Spencer Toole</p><a href="https://github.com/Gwrrrk"><div class="github"></div></a>
+          <p>Hon Ip</p><a href="https://github.com/honbobau"><div class="github"></div></a>
+        </div>
+
+        <div class="col-md-3">
           <p class="text-right" id="watermark">2016 Lighthouse Labs <span class="glyphicon glyphicon-copyright-mark"></span></p>
         </div>
       </div>
