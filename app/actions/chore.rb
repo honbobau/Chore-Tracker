@@ -26,13 +26,32 @@ end
 #allows a user to complete a task
 put '/chore/complete/:id' do
 	chore = Chore.find(params[:id])
-	chore.update(completed: true)
+	chore.update(completed: true, completed_at: DateTime.now)
 	redirect '/main'
 end
 
 #allows an admin to delete a chore
-delete '/chore/removechore/:id' do
+delete '/chore/removechore/:chore_id' do
 	chore = Chore.find(params[:chore_id])
 	chore.destroy
 	redirect "/main"
 end
+
+# # allows an admin to rate a completed chore
+# put '/user/chore/rating/:chore_id' do
+# 	rating = params[:rating]
+# 	chore = Chore.find(params[:chore_id])
+# 	chore.update(rating: rating)
+# 	redirect '/main'
+# end
+
+# allows an admin to clear the chores out
+put '/chore/clear' do
+	chore = Chore.all
+	chore.map do |chore|
+		chore.update(show?: false)
+		chore.save
+	end	
+	redirect "/main"
+end
+

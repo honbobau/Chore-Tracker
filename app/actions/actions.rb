@@ -24,7 +24,7 @@ get '/main' do
   chore_list = Chore.where(group_id: current_user.group_id)
   # binding.pry
   @chores = chore_list.select {|chore| chore[:completed] == false}
-  @chores_completed = chore_list.select {|chore| chore[:completed] == true}
+  @chores_completed = chore_list.select {|chore| chore[:completed] == true && chore[:show?] == true}
 	erb :'/main/index'
 end
 
