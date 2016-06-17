@@ -25,7 +25,7 @@ end
 
 # Logs user out of group
 put "/group/leave" do
-	if current_user.id == current_user.group.admin_id
+	if current_user.id == current_user.group.admin_id && current_user.group.users.count > 1
 		redirect '/user/change_admin'
 	end
 	current_user.update(group_id: nil)

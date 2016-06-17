@@ -21,7 +21,9 @@ end
 
 #redirects to the main app page and passes a list of chores related to the group id
 get '/main' do  
-  @chores = Chore.where(group_id: current_user.group_id)
+  chore_list = Chore.where(group_id: current_user.group_id)
+  # binding.pry
+  @chores = chore_list.select {|chore| chore[:completed] == false} + chore_list.select {|chore| chore[:completed] == true}
 	erb :'/main/index'
 end
 
