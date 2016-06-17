@@ -32,10 +32,13 @@ body a:hover {
   background: url("../pictures/jumbotron.jpg") center -100px no-repeat;
   background-size: cover;
   height: 480px; }
-  .indexSignUp .btn {
+  .indexSignUp s
+  .btn {
     background-color: #312525;
     color: #F1F2F3;
     font-size: 20px; }
+  .indexSignUp .col-md-12 {
+    text-align: center; }
 
 .indexMain {
   padding: 60px 0;
@@ -48,61 +51,51 @@ body a:hover {
   .supporting h4 {
     color: #F1F2F3;
     padding-bottom: 15px; }
-
-.appStats {
-  padding-top: 60px;
-  padding-bottom: 60px; }
+  .supporting .appStats {
+    padding-top: 60px;
+    padding-bottom: 60px; }
 
 /* ------------------------------------------- */
 /* main page */
-.main {
+.main-page {
   padding-bottom: 30px; }
-
-.col-centered {
-  float: none;
-  margin: 0 auto; }
-
-.chore_list {
-  padding: 0; }
-  .chore_list li {
-    list-style-type: none;
-    padding-bottom: 5px; }
-  .chore_list #got_this {
-    padding: 2px 4px; }
-  .chore_list form {
-    padding-left: 10px; }
+  .main-page .col-centered {
+    float: none;
+    margin: 0 auto; }
+  .main-page .chore_list {
+    padding: 0; }
+    .main-page .chore_list li {
+      list-style-type: none;
+      padding-bottom: 8px; }
+    .main-page .chore_list #got_this {
+      padding: 2px 4px; }
+    .main-page .chore_list form {
+      padding-left: 10px; }
 
 /* ------------------------------------------- */
 /* sign up */
 .signup_main {
   background-color: #F7F7F7;
   padding-bottom: 20px; }
-
-.signup_form {
-  padding: 100px 0 60px 0; }
-  .signup_form .block {
-    padding-bottom: 20px; }
-
-.signup_features {
-  margin-top: 30px;
-  border: 1px solid black;
-  border-radius: 5%; }
-  .signup_features li {
-    list-style-type: none;
-    padding-top: 10px; }
+  .signup_main .signup_form {
+    padding: 100px 0 60px 0; }
+    .signup_main .signup_form .block {
+      padding-bottom: 20px; }
+  .signup_main .signup_features {
+    margin-top: 30px;
+    border: 1px solid black;
+    border-radius: 5%; }
+    .signup_main .signup_features li {
+      list-style-type: none;
+      padding-top: 10px; }
 
 /* ------------------------------------------- */
 /* misc */
-.text-centered {
-  text-align: center; }
-
-.row-centered {
-  text-align: center; }
-
 .col-centered {
   display: inline-block;
   float: none;
-  margin-right: -4px; }
+  margin-right: -4px;
+  text-align: center; }
 
 .relative {
   position: relative; }
@@ -126,7 +119,8 @@ body a:hover {
   border-radius: 100%;
   color: #312525;
   font-size: 40px;
-  margin: auto; }
+  margin: auto;
+  text-align: center; }
 
 #left-border {
   border-left: 3px inset #ffb3b3;

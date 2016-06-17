@@ -43,65 +43,72 @@ body {
   display: inline;
 }
 
-
 /* ------------------------------------------- */
 /* landing page */
 
 .indexSignUp {
   background: url("../pictures/jumbotron.jpg") center -100px no-repeat;
   background-size: cover;
-  height: 480px;
+  height: 480px;s
   .btn {
     background-color: #312525;
     color: $lightFontColor;
     font-size: 20px;
+  }
+  .col-md-12 {
+    text-align: center;
   }
 }
 
 .indexMain {
   padding: 60px 0;
   background-color: #F7F7F7;
+
   h2 {
     padding-top: 30px;
   }
 }
 
-
 .supporting {
   background-color: $headerColor;
-  h4{
+  h4 {
     color: $lightFontColor;
     padding-bottom: 15px;
   }
+  .appStats {
+    padding-top: 60px;
+    padding-bottom: 60px;
+  }
 }
 
-.appStats {
-  padding-top: 60px;
-  padding-bottom: 60px;
-}
+
+
 /* ------------------------------------------- */
 /* main page */
-.main {
+
+.main-page {
   padding-bottom: 30px;
-}
-
-.col-centered {
-  float: none;
-  margin: 0 auto;
-
-}
-
-.chore_list {
-  padding: 0;
-  li { 
-    list-style-type: none;
-    padding-bottom: 5px;
+  
+  .col-centered {
+    float: none;
+    margin: 0 auto;
   }
-  #got_this {
-    padding: 2px 4px;
-  } 
-  form {
-    padding-left: 10px;
+
+  .chore_list {
+    padding: 0;
+
+    li { 
+      list-style-type: none;
+      padding-bottom: 8px;
+    }
+
+    #got_this {
+      padding: 2px 4px;
+    } 
+
+    form {
+      padding-left: 10px;
+    }
   }
 }
 
@@ -110,39 +117,34 @@ body {
 .signup_main {
   background-color: #F7F7F7;
   padding-bottom: 20px;
-}
-.signup_form {
-  padding: 100px 0 60px 0;
-  .block{
-    padding-bottom: 20px;
+  
+  .signup_form {
+    padding: 100px 0 60px 0;
+    .block{
+      padding-bottom: 20px;
+    }
   }
-}
 
-.signup_features {
-  margin-top: 30px;
-  border: 1px solid black;
-  border-radius: 5%;
-  li {
-    list-style-type: none;
-    padding-top: 10px;
+  .signup_features {
+    margin-top: 30px;
+    border: 1px solid black;
+    border-radius: 5%;
+
+    li {
+      list-style-type: none;
+      padding-top: 10px;
+    }
   }
 }
 
 /* ------------------------------------------- */
 /* misc */
 
-.text-centered {
-  text-align: center;
-}
-
-.row-centered {
-  text-align: center;
-}
-
 .col-centered {
   display: inline-block;
   float: none;
   margin-right: -4px;
+  text-align: center;
 }
 
 .relative {
@@ -166,13 +168,14 @@ body {
 }
 
 #circle_border {
-    height: 65px;
-    width: 65px;
-    border: 2px solid $footerColor;
-    border-radius: 100%;
-    color: $darkFontColor;
-    font-size: 40px;
-    margin: auto;
+  height: 65px;
+  width: 65px;
+  border: 2px solid $footerColor;
+  border-radius: 100%;
+  color: $darkFontColor;
+  font-size: 40px;
+  margin: auto;
+  text-align: center;
 }
 
 #left-border {
