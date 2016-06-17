@@ -35,7 +35,7 @@
             <div class="col-md-4 group_buttons">
 
               <!-- option to leave the group if they are -->
-              <% if current_group %>
+              <% if current_group_id %>
                 <p>You are a part of <%= current_user.group.group_name %>
                 <form method="post" action="/group/leave">
                   <input type="hidden" name="_method" value="PUT">

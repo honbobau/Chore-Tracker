@@ -9,17 +9,21 @@ post "/user/new" do
 	username = params[:user_name]
 	realname = params[:real_name]
 	password = params[:password]
+	password_confirm = params[:password_confirmation]
  
-	@user = User.new({ user_name: username, real_name: realname, password: password})
+	@user = User.new({ user_name: username, real_name: realname, password: password, password_confirmation: password_confirm})
 	
-
 	if @user.save
     session[:user_id] = @user.id
 		redirect(to('/main'))
 	else
 		erb(:signup)
 	end
+end
 
+get "/user/change_admin" do
+	@user_list = User.where(group_id: current_user.group_id)
+	erb :'main/change_admin'
 end
 
 #logs the user in if their username/password combo found in database
@@ -43,6 +47,7 @@ get '/user/logout' do
     erb(:index)
 end
 
+#finds the profile for a specific user
 get '/user/:id' do
 	@user = User.find params[:id]
 	erb :'main/profile'

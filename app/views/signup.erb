@@ -17,12 +17,15 @@
         <div class="block">
           <label>Password:</label>
           <input type="password" name="password">
+          <input type="password" name="password_confirmation">
+          <input type="submit" value="Make Chores For Yourself!!">
         </div>
 
         <div>
           <button type="submit" class="btn btn-default">sign up</button>
         </div>
         </form>
+
         <ul class= "errors">
         <% @user.errors.full_messages.each do |message| %>
           <li> <%= message %> </li>
