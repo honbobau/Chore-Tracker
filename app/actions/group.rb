@@ -36,9 +36,3 @@ delete "/group/remove" do
 	group = Group.find(params[:id])
 	group.destroy
 end 
-
-# post "/group/change_admin/" do
-# 	user_id = params[:user_id]
-# 	current_user.group.update(admin_id: user_id)
-# 	redirect '/main'
-# end

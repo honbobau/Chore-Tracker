@@ -3,21 +3,13 @@
     <div class="row">
           <!-- only displays chores if the user is in a group -->
           <% if current_group_id %>
-            <div class="col-md-8 col-md-offset-3 col-centered">
+            <div class="col-md-5 col-md-offset-1">
               <ul class="chore_list">
               <h3 style="text-decoration: underline;">To-do:</h3>
               <% @chores.each do |chore| %>
-                <!-- if the chore is completed it shows as crossed out -->
-                <% if chore.completed == true %>
-                  <li class="finished">
-                    <%= erb :"/main/partials/_add_comment_to_chore_complete", locals: {chore: chore} %>
-                  </li>
-                  <li>
-                    <span class="glyphicon glyphicon-user" style="color: green;" aria-hidden="true"></span>&nbsp;
-                    Completed by <a href="/user/<%= chore.user_id %>"><%= chore.user.user_name %></a>
-                  </li>
+
                 <!-- if the chore is not assigned to a user, allow the user take responsibility for it -->
-                <% elsif !chore.user_id %>
+                <% if !chore.user_id %>
                   <!-- dropdown menu for comments -->
                   <div class="block">
                     <div class="inline-block">
@@ -60,23 +52,40 @@
                     <span class="glyphicon glyphicon-user" aria-hidden="true" style="color: #ffc04c;"></span>&nbsp;
                     <a href="/user/<%= chore.user_id %>"><%= chore.user.user_name %> is taking care of this</a> 
                   </li> 
+                
                 <% end %>
-                  
+              
+              <% end %>
+                <!-- checks if user is an admin and gives them option to add new chores -->
+              <% if current_user.id == group_admin_check.admin_id %>
+                <form style="padding-top: 10px" method="get" action="/chore/change">
+                  <input type="submit" class="btn btn-info" value="Add a new chore!">
+                </form>
+
+                <form method="get" action="/user/change_admin">
+                  <input type="submit" class="btn btn-info" value="Change Admin for group!">
+                </form>
               <% end %>
 
-            <!-- checks if user is an admin and gives them option to add new chores -->
-            <% if current_user.id == group_admin_check.admin_id %>
-            <form style="padding-top: 10px" method="get" action="/chore/change">
-              <input type="submit" class="btn btn-info" value="Add a new chore!">
-            </form>
+          </div>
 
-            <form method="get" action="/user/change_admin">
-              <input type="submit" class="btn btn-info" value="Change Admin for group!">
-            </form>
+          <div class="col-md-5 col-md-offset-1">
+            <ul class="chore_list">
+              <h3 style="text-decoration: underline;">Completed:</h3>
 
-            <% end %>
-          </ul>
-        </div>
+              <% @chores_completed.each do |chore| %>
+                <li class="finished">
+                   <%= erb :"/main/partials/_add_comment_to_chore_complete", locals: {chore: chore} %>
+                 </li>
+                 <li>
+                   <span class="glyphicon glyphicon-user" style="color: green;" aria-hidden="true"></span>&nbsp;
+                   Completed by <a href="/user/<%= chore.user_id %>"><%= chore.user.user_name %></a>
+                </li>
+                  
+        
+              <% end %>
+            </ul>
+          </div>
         
           <!-- prompts the user to join or create a group if not already in a group-->
           <% else %>
@@ -102,7 +111,7 @@
 
             <div class="col-md-3">
               <img src="../pictures/create_group_image.jpg">
-            </div>
+            </div>  
           <% end %>
     </div>
   </div>

@@ -23,7 +23,8 @@ end
 get '/main' do  
   chore_list = Chore.where(group_id: current_user.group_id)
   # binding.pry
-  @chores = chore_list.select {|chore| chore[:completed] == false} + chore_list.select {|chore| chore[:completed] == true}
+  @chores = chore_list.select {|chore| chore[:completed] == false}
+  @chores_completed = chore_list.select {|chore| chore[:completed] == true}
 	erb :'/main/index'
 end
 
