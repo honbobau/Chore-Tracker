@@ -48,7 +48,7 @@ end
 
 # allows an admin to clear the chores out
 put '/chore/clear' do
-	chore = Chore.all
+	chore = Chore.find_by(group_id: current_user.group_id, completed: true)
 	chore.map do |chore|
 		chore.update(show?: false)
 		chore.save
