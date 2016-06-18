@@ -54,13 +54,13 @@
           <% end %>
         <!-- checks if user is an admin and gives them option to add new chores -->
         <% if current_user.id == group_admin_check.admin_id %>
-        <div>
-          <form class="inline-block style="padding-top: 10px" method="get" action="/chore/change">
-            <input type="submit" class="btn btn-info" value="Add a new chore!">
+        <div class="pull-left">
+          <form class="inline-block" method="get" action="/chore/change">
+            <button id="to-do-button" type="submit" class="btn">add a new chore</button>
           </form>
 
           <form class="inline-block" method="get" action="/user/change_admin">
-            <input type="submit" class="btn btn-info" value="Change Admin for group!">
+            <button id="to-do-button" type="submit" class="btn">change admin</button>
           </form>
         </div>
         <% end %>
@@ -83,7 +83,7 @@
           <% if current_user.id == group_admin_check.admin_id %>
             <form method="post" action="/chore/clear">
               <input type="hidden" name="_method" value="PUT">
-              <button type="submit" class="btn">Clear</button>
+              <button id="clear-chores-button" type="submit" class="btn">clear</button>
             </form>
           <% end %>
         </ul>

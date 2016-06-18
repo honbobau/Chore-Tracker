@@ -1,36 +1,70 @@
 <!-- creates a chore and a description for it -->
-<div class="main">
+<div class="main create-chore-main">
   <div class="container">
-    <div class="col-md-4 col-centered">
-      <h1>What chore would you like to create?</h1>
-      <form class="inputForm" method="post" action="/chore/create">
-      <div>
-        <label class="pull-left inline-block">Chore name</label>
-        <input class="pull-right inline-block" type="text" name="name">
+    <div class="row">
+      <!-- chore creation form -->
+      <div class="col-md-4 col-md-offset-1 create-chore-form">
+        <h1>What chore would you like to create?</h1>
+        <form class="inputForm" method="post" action="/chore/create">
+          <div>
+            <label class="pull-left inline-block">Chore name</label>
+            <input class="pull-right inline-block" type="text" name="name">
+          </div>
+
+          <div class="block" style="padding-top:50px">
+            <label class="pull-left inline-block">Chore description</label>
+            <input class="pull-right inline-block" type="text" name="description">
+          </div>
+
+          <div class="block" style="padding-top:50px">
+            <label class="pull-left inline-block"> Difficulty </label>
+            <select class="pull-right inline-block" name="difficulty">
+              <option value="1">Easy</option>
+              <option value="2">Medium</option>
+              <option value="3">Hard</option>
+            </select>
+          </div>
+
+          <div style="clear:both;" class="block">
+          <input id="button" type="submit" class="btn btn-info pull-right" value="Add Chore!">
+          </div>
+        </form>
+
+        <div style="clear: both;">
+          <ul class= "errors">
+            <% @chore.errors.full_messages.each do |message| %>
+              <li> <%= message %> </li>
+            <% end %>
+          </ul>
+        </div>
       </div>
-      <div class="block" style="padding-top:50px">
-        <label class="pull-left inline-block">Chore description</label>
-        <input class="pull-right inline-block" type="text" name="description">
+
+      <div class="col-md-4 col-md-offset-2 create-chore-bg"></div> 
+    </div>
+  </div>
+</div>
+
+<div class="supporting create-chore-supporting">
+  <div class="container">
+    <h1>How does it work?</h1>
+    <div class="row">
+      <div class="col-md-4">
+        <h3>Phase 1</h3>
+        <p>Specify what chore needs to be done</p>
+        <p>Add a description if you need to</p>
+        <p>Pick the difficulty of the chore</p>
       </div>
-      <div class="block" style="padding-top:50px">
-        <label class="pull-left inline-block"> Difficulty </label>
-        <select class="pull-right inline-block" name="difficulty">
-          <option value="1">Easy</option>
-          <option value="2">Medium</option>
-          <option value="3">Hard</option>
-        </select>
+
+      <div class="col-md-4">
+        <h3>Phase 2</h3>
+        <p id="question-mark">?</p>
       </div>
-      <div style="clear:both;" class="block">
-      <input id="button" type="submit" class="btn btn-info pull-right" value="Add Chore!">
-      </div>
-      </form>
-      <div style="clear: both;">
-        <ul class= "errors">
-          <% @chore.errors.full_messages.each do |message| %>
-            <li> <%= message %> </li>
-          <% end %>
-        </ul>
-      </div>
+
+      <div class="col-md-4">
+        <h3>Phase 3</h3>
+        <br>
+        <p id="profit">Profit</p>
+      </div>      
     </div>
   </div>
 </div>

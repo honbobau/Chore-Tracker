@@ -8,7 +8,7 @@ body a:hover {
   text-decoration: none; }
 
 /* ------------------------------------------- */
-/* header */
+/* header & footer */
 .header {
   color: #F1F2F3;
   background-color: #D25150; }
@@ -16,12 +16,22 @@ body a:hover {
     color: inherit; }
   .header input, .header select, .header textarea {
     color: #312525; }
+  .header container {
+    position: fixed; }
 
 .footer {
   background-color: #263648;
   padding: 20px 0px;
   margin: 0;
   color: #F1F2F3; }
+  .footer #created-by {
+    line-height: 60%; }
+  .footer img {
+    width: 30px;
+    height: 30px;
+    padding-bottom: 3px; }
+  .footer address {
+    padding-bottom: 30px; }
 
 .group_buttons {
   display: inline; }
@@ -32,13 +42,20 @@ body a:hover {
   background: url("../pictures/jumbotron.jpg") center -100px no-repeat;
   background-size: cover;
   height: 480px; }
-  .indexSignUp s
-  .btn {
+  .indexSignUp .btn {
     background-color: #312525;
     color: #F1F2F3;
     font-size: 20px; }
   .indexSignUp .col-md-12 {
     text-align: center; }
+  .indexSignUp .btn {
+    background-color: #446B88;
+    color: #F1F2F3;
+    font-size: 20px;
+    transition: 1s; }
+  .indexSignUp .btn:hover {
+    background-color: #D25150;
+    color: #F1F2F3; }
 
 .indexMain {
   padding: 60px 0;
@@ -46,12 +63,12 @@ body a:hover {
   .indexMain h2 {
     padding-top: 30px; }
 
-.supporting {
+.indexSupporting {
   background-color: #D25150; }
-  .supporting h4 {
+  .indexSupporting h4 {
     color: #F1F2F3;
     padding-bottom: 15px; }
-  .supporting .appStats {
+  .indexSupporting .appStats {
     padding-top: 60px;
     padding-bottom: 60px; }
 
@@ -71,12 +88,20 @@ body a:hover {
       padding: 2px 4px; }
     .main-page .chore_list form {
       padding-left: 10px; }
+  .main-page #clear-chores-button, .main-page #to-do-button {
+    background-color: #5BC0DE;
+    color: #F1F2F3;
+    transition: 0.5s; }
+  .main-page #to-do-button:hover {
+    background-color: #349854; }
+  .main-page #clear-chores-button:hover {
+    background-color: #D25150; }
 
 /* ------------------------------------------- */
 /* sign up */
 .signup_main {
   background-color: #F7F7F7;
-  padding-bottom: 20px; }
+  padding-bottom: 200px; }
   .signup_main .signup_form {
     padding: 100px 0 60px 0; }
     .signup_main .signup_form .block {
@@ -87,7 +112,8 @@ body a:hover {
     border-radius: 5%; }
     .signup_main .signup_features li {
       list-style-type: none;
-      padding-top: 10px; }
+      padding-top: 10px;
+      font-size: 16px; }
 
 /* ------------------------------------------- */
 /* Profile page*/
@@ -101,10 +127,37 @@ body a:hover {
 
 /* ------------------------------------------- */
 /* chore creation */
-.inputForm {
+.create-chore-main h1 {
+  margin-bottom: 20px;
+  border-bottom: 1px solid #312525;
+  padding-bottom: 5px; }
+.create-chore-main .inputForm {
   width: 90%;
   margin: 0; }
+.create-chore-main .create-chore-bg {
+  width: 380px;
+  height: 327px;
+  background: url("../pictures/create_chore.jpg") center -40px no-repeat;
+  background-size: cover;
+  color: blue; }
+.create-chore-main .create-chore-form, .create-chore-main .create-chore-form {
+  padding-top: 30px;
+  padding-bottom: 60px; }
 
+.create-chore-supporting {
+  background-color: #F7F7F7;
+  padding-bottom: 30px; }
+  .create-chore-supporting h1, .create-chore-supporting h3, .create-chore-supporting p {
+    text-align: center; }
+  .create-chore-supporting h3 {
+    text-decoration: underline; }
+  .create-chore-supporting #question-mark {
+    font-size: 60px; }
+  .create-chore-supporting #profit {
+    font-size: 24px; }
+
+/* ------------------------------------------- */
+/* admin-change */
 /* ------------------------------------------- */
 /* misc */
 .col-centered {

@@ -1,8 +1,10 @@
-<div>
-	<form method="post" action="/group/change_admin/">
-		<% @user_list.each do |user| %>
-			<input type="radio" name="user_id" value="<%=user.id%>"> <%= user.user_name %> </br>
-		<% end %>
-		<input type="submit" value="Submit">
-	</form>
+<div class="main admin-change">
+  <div class="container">
+  	<form method="post" action="/group/change_admin/">
+  		<% @user_list.each do |user| %>
+  			<input type="radio" name="user_id" value="<%=user.id%>"> <%= user.user_name %> </br>
+  		<% end %>
+  		<input type="submit" value="Submit">
+  	</form>
+  </div>
 </div>
