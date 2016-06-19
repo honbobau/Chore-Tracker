@@ -314,10 +314,15 @@ body {
       color: $lightFontColor;
       background-color: #5BC0DE;
       transition: 0.5s;
+      width: 102.33px;
     }
 
     .btn:hover {
       background-color: #349854
+    }
+
+    #nevermind:hover {
+      background-color: $headerColor;
     }
 
   }

@@ -172,17 +172,27 @@
               <ul>
                 <li>
                   <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
-                  &nbsp; total chores done: <%= current_user.group.chores.count(completed: true) %>
+                  &nbsp; total chores done: <%= current_user.group.chores.where(completed: true).count %>
                 </li>
 
                 <li>
-                  <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
-                  &nbsp; most chores completed: <span class="glyphicon glyphicon-user" aria-hidden="true"></span>&nbsp;<a href="/user/<%= most_chores_completed.id %>"><%= most_chores_completed.user_name %></a>
+                  <% if most_chores_completed %>
+                    <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                    &nbsp; most chores done: <span class="glyphicon glyphicon-user" aria-hidden="true"></span>&nbsp;<a href="/user/<%= most_chores_completed.id %>"><%= most_chores_completed.user_name %></a>
+                  <% else %>
+                    <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                    &nbsp; most chores done: nobody!
+                  <% end %>
                 </li>
 
                 <li>
-                  <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
-                  &nbsp; most recently completed chore: <%= current_user.group.chores.where(completed: true).max_by(&:completed_at).name %>
+                  <% if recently_completed_chore %>
+                    <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                    &nbsp; most recently done chore: <%= recently_completed_chore.name %>
+                  <% else %>
+                    <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                    &nbsp; most recently done chore: none!
+                  <% end %>
                 </li>
 
               </ul>

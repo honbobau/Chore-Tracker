@@ -5,12 +5,17 @@
       <h3 style="text-decoration: underline;">Pick your new admin</h3>
     	<form method="post" action="/group/change_admin/">
     		<% @user_list.each do |user| %>
-          <div class="radio-button">
-      			<input type="radio" name="user_id" value="<%=user.id%>"> <%= user.user_name %> </br>
-          </div>
+          <% if user.id != current_user.group.admin_id %>
+            <div class="radio-button">
+        			<input type="radio" name="user_id" value="<%=user.id%>"> <%= user.user_name %> </br>
+            </div>
+          <% end %>
     		<% end %>
     		<button type="submit" class="btn">submit</button>
     	</form>
+      <form method="get" action="/main">
+        <button type="submit" class="btn" id="nevermind">nevermind</button>
+      </form>
     </div>
 
     <div class="col-md-6 col-md-offset-1 admin-do">

@@ -15,7 +15,7 @@ post "/user/new" do
 	
 	if @user.save
     session[:user_id] = @user.id
-		redirect(to('/main'))
+		redirect to '/main'
 	else
 		erb(:signup)
 	end

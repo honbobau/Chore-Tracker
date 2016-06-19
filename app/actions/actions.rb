@@ -20,7 +20,15 @@ helpers do
 
   #helper to find user in a group who has done the most chores
   def most_chores_completed
-    current_user.group.chores.where(completed: true).max_by(&:user_id).user
+    if current_user.group.chores.where(completed: true).max_by(&:user_id)
+      current_user.group.chores.where(completed: true).max_by(&:user_id).user
+    end 
+  end
+
+  def recently_completed_chore
+    if current_user.group.chores.where(completed: true).max_by(&:completed_at)
+      current_user.group.chores.where(completed: true).max_by(&:completed_at)
+    end
   end
 
 end

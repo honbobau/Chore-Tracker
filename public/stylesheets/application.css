@@ -205,9 +205,12 @@ body a:hover {
   .admin-change .pick-admin .btn {
     color: #F1F2F3;
     background-color: #5BC0DE;
-    transition: 0.5s; }
+    transition: 0.5s;
+    width: 102.33px; }
   .admin-change .pick-admin .btn:hover {
     background-color: #349854; }
+  .admin-change .pick-admin #nevermind:hover {
+    background-color: #D25150; }
   .admin-change .admin-do {
     border: 1px solid black;
     border-radius: 5%;

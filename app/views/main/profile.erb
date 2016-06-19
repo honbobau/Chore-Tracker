@@ -7,15 +7,15 @@
       </div>
 
       <div class="col-md-4">
-        <p>user_name: <%= @user.user_name %></p>
+        <p>Username: <%= @user.user_name %></p>
         <% if @user.real_name == nil || @user.real_name.strip.empty? %>
-         	<p> real name: <b> User does not want to share real name! </b> </p>
+         	<p>Real Name: <strong><%= @user.user_name %> does not want to share their real name!</strong></p>
         <% else %>
-          <p>real name: <%= @user.real_name %></p>
+          <p>Real Name: <%= @user.real_name %></p>
         <% end %>
         <p>Current Group: <%= @user.group.group_name%></p>
-        <p>Chores completed: <%= @user.chores.select {|chore| chore[:completed] == true}.size %></p>
-        <p>Score total: <%= @user.total_score%></p>
+        <p>Chores Completed: <%= @user.chores.select {|chore| chore[:completed] == true}.size %></p>
+        <p>Chore Score: <%= @user.total_score%></p>
       </div>
 
     </div>
