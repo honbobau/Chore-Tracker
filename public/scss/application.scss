@@ -166,6 +166,10 @@ body {
 .main-supporting {
   background-color: #F7F7F7;
 
+  a:hover {
+    color: inherit;
+  }
+
   .main-supporting-buttons {
     text-align: center;
     background-color: #446B88;
@@ -296,6 +300,41 @@ body {
 
 /* ------------------------------------------- */
 /* admin-change */
+.admin-change {
+  background-color: #F7F7F7;
+  padding: 40px 0 70px 0;
+
+  .pick-admin {
+    .radio-button {
+      padding-bottom: 10px;
+      font-size: 15px; 
+    }
+
+    .btn {
+      color: $lightFontColor;
+      background-color: #5BC0DE;
+      transition: 0.5s;
+    }
+
+    .btn:hover {
+      background-color: #349854
+    }
+
+  }
+
+  .admin-do {
+    border: 1px solid black;
+    border-radius: 5%;
+    font-size: 15px;
+
+    li{
+      list-style: none;
+      padding-bottom: 5px;
+    }
+  }
+
+}
+
 
 
 /* ------------------------------------------- */
@@ -342,8 +381,4 @@ body {
 #left-border {
   border-left: 3px inset #ffb3b3;
   padding-left: 100px;
-}
-
-#watermark {
-  bottom: 0;
 }

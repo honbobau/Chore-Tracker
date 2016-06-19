@@ -2,6 +2,7 @@
 <div class="main main-page">
   <div class="container">
     <div class="row">
+
       <!-- only displays chores if the user is in a group -->
       <% if current_group_id %>
         <div class="col-md-5 col-md-offset-1">
@@ -27,18 +28,18 @@
             <!-- if current user is responsible for the chore they have the option of declaring it finished -->
             <% elsif chore.user_id == current_user.id %>
               <div>
-                  <li>
-                    <div class="inline-block">
-                      <%= erb :"/main/partials/_add_comment_to_chore_in_progress", locals: {chore: chore} %>
-                    </div>
-                    <form class="inline-block" method="post" action="/chore/complete/<%= chore.id %>">
-                      <input type="hidden" name="_method" value="PUT">
-                      <button type="submit" class="btn" id="got_this">done!</button>
-                    </form>
-                    
-                    <p><span class="glyphicon glyphicon-star-empty" aria-hidden="true" style="color: #ffc04c;"></span>&nbsp;
-                    I am doing this!</p>
-                  </li>
+                <li>
+                  <div class="inline-block">
+                    <%= erb :"/main/partials/_add_comment_to_chore_in_progress", locals: {chore: chore} %>
+                  </div>
+                  <form class="inline-block" method="post" action="/chore/complete/<%= chore.id %>">
+                    <input type="hidden" name="_method" value="PUT">
+                    <button type="submit" class="btn" id="got_this">done!</button>
+                  </form>
+                  
+                  <p><span class="glyphicon glyphicon-star-empty" aria-hidden="true" style="color: #ffc04c;"></span>&nbsp;
+                  I am doing this!</p>
+                </li>
               </div>
 
 
@@ -170,11 +171,20 @@
             <div class="slide-styling" id="chore-stats-slide">
               <ul>
                 <li>
-                  <span class="glyphicon glyphicon-star" aria-hidden="true"></span>&nbsp; total chores done: <%= current_user.group.chores.count(completed: true) %>
+                  <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                  &nbsp; total chores done: <%= current_user.group.chores.count(completed: true) %>
                 </li>
-                <li>
 
+                <li>
+                  <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                  &nbsp; most chores completed: <span class="glyphicon glyphicon-user" aria-hidden="true"></span>&nbsp;<a href="/user/<%= most_chores_completed.id %>"><%= most_chores_completed.user_name %></a>
                 </li>
+
+                <li>
+                  <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                  &nbsp; most recently completed chore: <%= current_user.group.chores.where(completed: true).max_by(&:completed_at).name %>
+                </li>
+
               </ul>
             </div>
           </div>
