@@ -1,4 +1,9 @@
-#otion to change the admin user for a group
+#motion to change the admin user for a group
+post "/group/change_admin/" do
+	new_admin = params[:user_id]
+	current_user.group.update(admin_id: new_admin)
+	redirect '/main'
+end
 
 #creates a group and adds the group id to the current user
 post "/group/create" do

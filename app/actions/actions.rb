@@ -13,8 +13,22 @@ helpers do
   	current_user.group_id
   end
 
+  #helper to check whether or not an admin exists
   def group_admin_check
     Group.find_by(id: current_user.group_id)
+  end
+
+  #helper to find user in a group who has done the most chores
+  def most_chores_completed
+    if current_user.group.chores.where(completed: true).max_by(&:user_id)
+      current_user.group.chores.where(completed: true).max_by(&:user_id).user
+    end 
+  end
+
+  def recently_completed_chore
+    if current_user.group.chores.where(completed: true).max_by(&:completed_at)
+      current_user.group.chores.where(completed: true).max_by(&:completed_at)
+    end
   end
 
 end

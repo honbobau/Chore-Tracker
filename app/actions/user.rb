@@ -15,12 +15,13 @@ post "/user/new" do
 	
 	if @user.save
     session[:user_id] = @user.id
-		redirect '/main'
+		redirect to '/main'
 	else
 		erb(:signup)
 	end
 end
 
+# changes the admin from one user to another
 get "/user/change_admin" do
 	@user_list = User.where(group_id: current_user.group_id)
 	erb :'main/change_admin'
