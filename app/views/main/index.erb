@@ -52,17 +52,25 @@
               </li> 
             <% end %>
           <% end %>
-        <!-- checks if user is an admin and gives them option to add new chores -->
-        <% if current_user.id == group_admin_check.admin_id %>
-        <div class="pull-left">
-          <form class="inline-block" method="get" action="/chore/change">
-            <button id="to-do-button" type="submit" class="btn">add a new chore</button>
-          </form>
 
-          <form class="inline-block" method="get" action="/user/change_admin">
-            <button id="to-do-button" type="submit" class="btn">change admin</button>
-          </form>
-        </div>
+        <!-- checks if user is an admin and gives them option to add new chores, otherwise displays current admin -->
+        <% if current_user.id == group_admin_check.admin_id %>
+          <div class="pull-left">
+            <form class="inline-block" method="get" action="/chore/change">
+              <button id="to-do-button" type="submit" class="btn">add a new chore</button>
+            </form>
+
+            <form class="inline-block" method="get" action="/user/change_admin">
+              <button id="to-do-button" type="submit" class="btn">change admin</button>
+            </form>
+          </div>
+        <% else %>
+          <div style="padding-top: 10px;">
+            <span id="admin-show-border">
+              <span class="glyphicon glyphicon-user" aria-hidden="true"></span>&nbsp;
+              <a style="color: #333a4b; " href="/user/<%= current_user.group.admin_id %>"><%= User.find_by(id: current_user.group.admin_id).user_name %></a> is your group admin
+            </span>
+          </div>
         <% end %>
       </div>
 
@@ -120,3 +128,68 @@
     </div>
   </div>
 </div>  
+
+<% if current_group_id %>
+  <div class="supporting main-supporting">
+
+    <!-- stats buttons -->
+    <div class="row main-supporting-buttons">
+      <div class="container">
+        <div class="col-md-4">
+          <h3 class="cursor" id="group-members-slidedown">groupies</h3>
+        </div>
+       
+        <div class="col-md-4">
+          <h3 class="cursor" id="chore-stats-slidedown">chore stats</h3>
+        </div>
+      </div>
+   </div>
+
+    <div class="row main-supporting-slidedown">
+      <div class="container">
+
+      <!-- stats slidedowns -->
+        <div class="col-md-4">
+          <div class="main-supporting-slidedowns">
+            <div class="slide-styling" id="group-members-slide">
+              <ul>
+                <% User.where(group_id: current_user.group_id).each do |user| %>
+                  <li>
+                    <span class="glyphicon glyphicon-user" aria-hidden="true"></span>&nbsp;
+                    <a href="/user/<%= user.id %>"><%= user.user_name %></a>
+                  </li>
+                <% end %>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- chore stats slidedown -->
+        <div class="col-md-4">
+          <div class="main-supporting-slidedowns">
+            <div class="slide-styling" id="chore-stats-slide">
+              <ul>
+                <li>
+                  <span class="glyphicon glyphicon-star" aria-hidden="true"></span>&nbsp; total chores done: <%= current_user.group.chores.count(completed: true) %>
+                </li>
+                <li>
+
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div> 
+
+        <!-- filler picture -->
+        <div class="col-md-4">
+          <div style="text-align: center">
+            <img src="../pictures/broom.png" id="broom">
+            <p style="color: #F1F2F3; padding-top: 5px; font-size: 20px;">brooms, yeah!!!</p>
+          </div>
+        </div>
+
+      </div>
+    </div>  
+   
+  </div>
+<% end %>

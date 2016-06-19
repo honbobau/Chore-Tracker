@@ -21,6 +21,7 @@ post "/user/new" do
 	end
 end
 
+# changes the admin from one user to another
 get "/user/change_admin" do
 	@user_list = User.where(group_id: current_user.group_id)
 	erb :'main/change_admin'

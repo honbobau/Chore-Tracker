@@ -1,10 +1,12 @@
 <div class="main">  
   <div class="container">
     <div class="row" id="profileCard">
+      
       <div class="col-md-4">
         <div class="profileDisplay"></div>
       </div>
-      <div class"col-md-4">
+
+      <div class="col-md-4">
         <p>user_name: <%= @user.user_name %></p>
         <% if @user.real_name == nil || @user.real_name.strip.empty? %>
          	<p> real name: <b> User does not want to share real name! </b> </p>
@@ -15,6 +17,7 @@
         <p>Chores completed: <%= @user.chores.select {|chore| chore[:completed] == true}.size %></p>
         <p>Score total: <%= @user.total_score%></p>
       </div>
+
     </div>
   </div>
 </div>

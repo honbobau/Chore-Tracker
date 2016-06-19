@@ -20,6 +20,7 @@
   <div class="header">
     <div class="container">
       <div class="row">
+
         <div class="col-md-4 logo">
           <% if current_user %>
             <a href="/main"><h2>ChoreTracker</h2></a>
@@ -35,21 +36,25 @@
             <div class="col-md-4 pull-right group_buttons">
 
               <!-- logs the user out -->
-              <div class="pull-right">
-                <p class="inline-block">Hello, <%= current_user.user_name %>!</p>
-                <form class="inline-block" method="get" action="/user/logout">
-                  <button type="submit" class="btn btn-default">Logout</button>
-                </form>
+              <div class="row">
+                <div style="padding-top: 5px;" class="pull-right">
+                  <p class="inline-block">Hello, <%= current_user.user_name %>!</p>
+                  <form class="inline-block" method="get" action="/user/logout">
+                    <button type="submit" class="btn btn-default">Logout</button>
+                  </form>
+                </div>
               </div>
 
               <!-- option to leave the group if they are -->
               <% if current_group_id %>
-                <div class="pull-right">
-                <p class="inline-block">Group: <%= current_user.group.group_name %></p>
-                  <form class="inline-block" method="post" action="/group/leave">
-                    <input type="hidden" name="_method" value="PUT">
-                    <button type="submit" class="btn btn-default">Leave</button>
-                  </form>
+                <div class="row">
+                  <div class="pull-right">
+                  <p class="inline-block">Group: <%= current_user.group.group_name %></p>
+                    <form class="inline-block" method="post" action="/group/leave">
+                      <input type="hidden" name="_method" value="PUT">
+                      <button type="submit" class="btn btn-default">Leave</button>
+                    </form>
+                  </div>
                 </div>
               <% end %>
             </div>
@@ -103,7 +108,7 @@
         <div class="col-md-4">
           <p>Created with care by:</p>
           <div id="created-by">
-            <p>Spencer Toole <a href="https://github.com/honbobau"><img src="../pictures/github.png"></a></p>
+            <p>Spencer Toole <a href="https://github.com/Gwrrrk"><img src="../pictures/github.png"></a></p>
             <p>Hon Ip <a href="https://github.com/honbobau"><img src="../pictures/github.png"></a></p>
           </div>
         </div>

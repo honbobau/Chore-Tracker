@@ -52,7 +52,7 @@ body a:hover {
     background-color: #446B88;
     color: #F1F2F3;
     font-size: 20px;
-    transition: 1s; }
+    transition: 0.5s; }
   .indexSignUp .btn:hover {
     background-color: #D25150;
     color: #F1F2F3; }
@@ -74,13 +74,16 @@ body a:hover {
 
 /* ------------------------------------------- */
 /* main page */
+/* chore display */
 .main-page {
-  padding-bottom: 30px; }
+  padding-bottom: 30px;
+  min-height: 400px; }
   .main-page .col-centered {
     float: none;
     margin: 0 auto; }
   .main-page .chore_list {
-    padding: 0; }
+    padding: 0;
+    font-size: 15px; }
     .main-page .chore_list li {
       list-style-type: none;
       padding-bottom: 8px; }
@@ -96,6 +99,39 @@ body a:hover {
     background-color: #349854; }
   .main-page #clear-chores-button:hover {
     background-color: #D25150; }
+  .main-page #admin-show-border {
+    border-top: 1px dotted black;
+    padding-top: 5px; }
+
+/* stats display */
+.main-supporting {
+  background-color: #F7F7F7; }
+  .main-supporting .main-supporting-buttons {
+    text-align: center;
+    background-color: #446B88;
+    color: #F1F2F3;
+    height: 60px; }
+    .main-supporting .main-supporting-buttons .cursor {
+      cursor: pointer; }
+  .main-supporting .main-supporting-slidedown {
+    background-color: #D25150;
+    min-height: 160px;
+    padding: 15px 0;
+    /* styles the slidedowns and sets display none */ }
+    .main-supporting .main-supporting-slidedown li {
+      list-style: none; }
+    .main-supporting .main-supporting-slidedown .slide-styling {
+      display: none;
+      color: #F1F2F3;
+      padding: 10px 0;
+      text-align: left;
+      font-size: 20px; }
+      .main-supporting .main-supporting-slidedown .slide-styling li {
+        padding-left: 10px;
+        padding-bottom: 5px; }
+    .main-supporting .main-supporting-slidedown #broom {
+      width: 167.2px;
+      height: 200px; }
 
 /* ------------------------------------------- */
 /* sign up */
@@ -116,7 +152,7 @@ body a:hover {
       font-size: 16px; }
 
 /* ------------------------------------------- */
-/* Profile page*/
+/* profile page*/
 #profileCard {
   padding-top: 25px; }
 
