@@ -69,7 +69,7 @@
           <div style="padding-top: 10px;">
             <span id="admin-show-border">
               <span class="glyphicon glyphicon-user" aria-hidden="true"></span>&nbsp;
-              <a style="color: #333a4b; " href="/user/<%= current_user.group.admin_id %>"><%= User.find_by(id: current_user.group.admin_id).user_name %></a> is your group admin
+              <a style="color: #333a4b; " href="/user/<%= current_user.group.admin_id %>"><%= User.find_by(id: current_user.group.admin_id).user_name%></a> is your group admin
             </span>
           </div>
         <% end %>
