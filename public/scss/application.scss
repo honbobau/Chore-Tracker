@@ -4,6 +4,7 @@ $headerColor: #D25150;
 $footerColor: #263648;
 $lightFontColor: #F1F2F3;
 $darkFontColor: #312525;
+$blueButtonColor: #5BC0DE;
 
 * {
   font-family: 'Montserrat', sans-serif;
@@ -134,7 +135,25 @@ body {
 
     #got_this {
       padding: 2px 4px;
+      background-color: red;
+      color: $lightFontColor;
+      transition: 0.5s;
     } 
+
+    #got_this:hover {
+      background-color: #ffc04c;
+    }
+
+    #done {
+      padding: 2px 4px;
+      background-color: #ffc04c;
+      color: $lightFontColor;
+      transition: 0.5s;
+    }
+
+    #done:hover {
+      background-color: #349854;
+    }
 
     form {
       padding-left: 10px;
@@ -142,7 +161,7 @@ body {
   }
 
   #clear-chores-button, #to-do-button {
-    background-color: #5BC0DE;
+    background-color: $blueButtonColor;
     color: $lightFontColor;
     transition: 0.5s;
   }
@@ -242,15 +261,41 @@ body {
 /* ------------------------------------------- */
 /* profile page*/
 
-#profileCard {
+.profile-main {
   padding-top: 25px;
+
+  p {
+    font-size: 15px;
+  }
+
+  .profileDisplay {
+    background: url("../pictures/user-icon.png") no-repeat;
+    background-size: cover;
+    height: 300px; 
+  }
 }
 
-.profileDisplay {
-  background: url("../pictures/user-icon.png") no-repeat;
-  background-size: cover;
-  height: 300px; 
+.profile-supporting {
+  text-align: center;
+  padding: 70px 0;
+  background-color: $headerColor;
+
+  button {
+    background-color: $blueButtonColor;
+    color: $lightFontColor;
+    font-size: 20px;
+    padding: 10px;
+    transition: 0.5s;
+  }
+
+  button:hover {
+  color: $lightFontColor;
+    background-color: $footerColor;
+  }
+
 }
+
+
 
 /* ------------------------------------------- */
 /* chore creation */
@@ -312,7 +357,7 @@ body {
 
     .btn {
       color: $lightFontColor;
-      background-color: #5BC0DE;
+      background-color: $blueButtonColor;
       transition: 0.5s;
       width: 102.33px;
     }
@@ -344,6 +389,10 @@ body {
 
 /* ------------------------------------------- */
 /* misc */
+
+.row-centered {
+  text-align: center;
+}
 
 .col-centered {
   display: inline-block;

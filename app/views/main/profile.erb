@@ -1,4 +1,4 @@
-<div class="main">  
+<div class="main profile-main">  
   <div class="container">
     <div class="row" id="profileCard">
       
@@ -6,16 +6,34 @@
         <div class="profileDisplay"></div>
       </div>
 
-      <div class="col-md-4">
+      <div class="col-md-6">
         <p>Username: <%= @user.user_name %></p>
+        <hr>
         <% if @user.real_name == nil || @user.real_name.strip.empty? %>
          	<p>Real Name: <strong><%= @user.user_name %> does not want to share their real name!</strong></p>
         <% else %>
           <p>Real Name: <%= @user.real_name %></p>
         <% end %>
+        <hr>
         <p>Current Group: <%= @user.group.group_name%></p>
+        <hr>
         <p>Chores Completed: <%= @user.chores.select {|chore| chore[:completed] == true}.size %></p>
+        <hr>
         <p>Chore Score: <%= @user.total_score%></p>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<div class="supporting profile-supporting">
+  <div class="container">
+    <div class="row">
+
+      <div class="col-md-4 col-md-offset-4">
+        <form method="get" action="/main">
+          <button type="submit" class="btn">back to chores</button>
+        </form>
       </div>
 
     </div>
