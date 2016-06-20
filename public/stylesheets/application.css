@@ -88,7 +88,19 @@ body a:hover {
       list-style-type: none;
       padding-bottom: 8px; }
     .main-page .chore_list #got_this {
-      padding: 2px 4px; }
+      padding: 2px 4px;
+      background-color: red;
+      color: #F1F2F3;
+      transition: 0.5s; }
+    .main-page .chore_list #got_this:hover {
+      background-color: #ffc04c; }
+    .main-page .chore_list #done {
+      padding: 2px 4px;
+      background-color: #ffc04c;
+      color: #F1F2F3;
+      transition: 0.5s; }
+    .main-page .chore_list #done:hover {
+      background-color: #349854; }
     .main-page .chore_list form {
       padding-left: 10px; }
   .main-page #clear-chores-button, .main-page #to-do-button {
@@ -155,13 +167,28 @@ body a:hover {
 
 /* ------------------------------------------- */
 /* profile page*/
-#profileCard {
+.profile-main {
   padding-top: 25px; }
+  .profile-main p {
+    font-size: 15px; }
+  .profile-main .profileDisplay {
+    background: url("../pictures/user-icon.png") no-repeat;
+    background-size: cover;
+    height: 300px; }
 
-.profileDisplay {
-  background: url("../pictures/user-icon.png") no-repeat;
-  background-size: cover;
-  height: 300px; }
+.profile-supporting {
+  text-align: center;
+  padding: 70px 0;
+  background-color: #D25150; }
+  .profile-supporting button {
+    background-color: #5BC0DE;
+    color: #F1F2F3;
+    font-size: 20px;
+    padding: 10px;
+    transition: 0.5s; }
+  .profile-supporting button:hover {
+    color: #F1F2F3;
+    background-color: #263648; }
 
 /* ------------------------------------------- */
 /* chore creation */
@@ -221,6 +248,9 @@ body a:hover {
 
 /* ------------------------------------------- */
 /* misc */
+.row-centered {
+  text-align: center; }
+
 .col-centered {
   display: inline-block;
   float: none;
